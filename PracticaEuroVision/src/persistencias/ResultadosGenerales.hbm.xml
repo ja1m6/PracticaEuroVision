@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 6 feb 2023 20:24:59 by Hibernate Tools 5.4.33.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="eurovision" name="persistencias.ResultadosGenerales" optimistic-lock="none" table="resultados_generales">
+        <id name="dniArtista" type="string">
+            <column length="9" name="DNI_ARTISTA"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="votosTotales" type="java.lang.Integer">
+            <column name="VOTOS_TOTALES"/>
+        </property>
+    </class>
+</hibernate-mapping>

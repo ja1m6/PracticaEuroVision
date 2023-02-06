@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="eurovision" match-name="artista"/>
+  <table-filter match-catalog="eurovision" match-name="porcentaje_votacion_rango"/>
+  <table-filter match-catalog="eurovision" match-name="porcentajes_rango_edad"/>
+  <table-filter match-catalog="eurovision" match-name="resultados_comunidad"/>
+  <table-filter match-catalog="eurovision" match-name="resultados_edad"/>
+  <table-filter match-catalog="eurovision" match-name="resultados_generales"/>
+</hibernate-reverse-engineering>

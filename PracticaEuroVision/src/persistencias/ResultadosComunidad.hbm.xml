@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 6 feb 2023 20:24:59 by Hibernate Tools 5.4.33.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="eurovision" name="persistencias.ResultadosComunidad" optimistic-lock="none" table="resultados_comunidad">
+        <id name="nombreComunidad" type="string">
+            <column length="50" name="NOMBRE_COMUNIDAD"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="persistencias.Artista" fetch="select" name="artista">
+            <column length="9" name="DNI_ARTISTA"/>
+        </many-to-one>
+        <property name="numeroVotosComunidad" type="java.lang.Integer">
+            <column name="NUMERO_VOTOS_COMUNIDAD"/>
+        </property>
+    </class>
+</hibernate-mapping>
