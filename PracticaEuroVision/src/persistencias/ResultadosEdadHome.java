@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 6 feb 2023 20:24:59 by Hibernate Tools 5.4.33.Final
+// Generated 10 feb 2023 0:50:55 by Hibernate Tools 5.4.33.Final
 
 import java.util.List;
 import java.util.logging.Level;
@@ -85,7 +85,7 @@ public class ResultadosEdadHome {
 		}
 	}
 
-	public ResultadosEdad findById(java.lang.String id) {
+	public ResultadosEdad findById(java.lang.Integer id) {
 		logger.log(Level.INFO, "getting ResultadosEdad instance with id: " + id);
 		try {
 			ResultadosEdad instance = (ResultadosEdad) sessionFactory.getCurrentSession()

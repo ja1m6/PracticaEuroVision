@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 6 feb 2023 20:24:59 by Hibernate Tools 5.4.33.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10 feb 2023 0:50:55 by Hibernate Tools 5.4.33.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="eurovision" name="persistencias.ResultadosEdad" optimistic-lock="none" table="resultados_edad">
-        <id name="rango" type="string">
-            <column length="30" name="RANGO"/>
-            <generator class="assigned"/>
+        <id name="idResultadoEdad" type="java.lang.Integer">
+            <column name="ID_RESULTADO_EDAD"/>
+            <generator class="identity"/>
         </id>
         <many-to-one class="persistencias.Artista" fetch="select" name="artista">
             <column length="9" name="DNI_ARTISTA"/>
         </many-to-one>
+        <property name="rango" type="string">
+            <column length="30" name="RANGO" not-null="true"/>
+        </property>
         <property name="numeroVotosEdad" type="java.lang.Integer">
             <column name="NUMERO_VOTOS_EDAD"/>
         </property>
