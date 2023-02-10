@@ -560,29 +560,7 @@ public class CreacionHilos {
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-
-		System.out.println(votantes.size());
-		// PERSISTIMOS LOS DATOS EN LA BASE DE DATOS PARA PODER RECUPERARLOS DESPUÉS
-		eliminaresgistros(sf);
-		insertarVotosGenerales(sf, votantes);
-		insertarVotosEdad(sf, votantes);
-		//insertarVotosComunidad(sf, votantes);
-	}
-
-	private void eliminaresgistros(SessionFactory sf) {
-		Session s =sf.getCurrentSession();
-		try {
-			s.beginTransaction();
-			Query q=s.createSQLQuery("delete from resultados_generales");
-			Query q2=s.createSQLQuery("delete from resultados_edad");
-			Query q3=s.createSQLQuery("delete from resultados_comunidad");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			s.close();
-		}
-		
+    
 	}
 
 	public ArrayList<Integer> consultaVotantes(SessionFactory sessionFac, String nombreComunidad) {
@@ -865,32 +843,6 @@ public class CreacionHilos {
 			ResultadosEdad resultados26Anios;
 			ResultadosEdad resultados41Anios;
 			ResultadosEdad resultados66Anios;
-			
-			
-			for(int i=0;i<artistas.size();i++) {
-				//AÑADIMOS LOS VOTOS DE 18 AÑOS
-				resultados18Anios=new ResultadosEdad();
-				resultados18Anios.setArtista(artistas.get(i));
-				resultados18Anios.setRango("RANGO_18_25");
-				resultados18Anios.setNumeroVotosEdad(contador18Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 26 AÑOS
-				resultados26Anios=new ResultadosEdad();
-				resultados26Anios.setArtista(artistas.get(i));
-				resultados26Anios.setRango("RANGO_26_40");
-				resultados26Anios.setNumeroVotosEdad(contador26Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 41 AÑOS
-				resultados41Anios=new ResultadosEdad();
-				resultados41Anios.setArtista(artistas.get(i));
-				resultados41Anios.setRango("RANGO_41_65");
-				resultados41Anios.setNumeroVotosEdad(contador41Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 66 Y MAS AÑOS
-				resultados66Anios=new ResultadosEdad();
-				resultados66Anios.setArtista(artistas.get(i));
-				resultados66Anios.setRango("RANGO_MAS_66");
-				resultados66Anios.setNumeroVotosEdad(contador66Anios[i]);
-				session.saveOrUpdate(resultados18Anios);
-				session.saveOrUpdate(resultados26Anios);
-				session.saveOrUpdate(resultados41Anios);
 				session.saveOrUpdate(resultados66Anios);
 			}
 			session.getTransaction().commit();

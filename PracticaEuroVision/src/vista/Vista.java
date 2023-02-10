@@ -45,7 +45,7 @@ public class Vista extends JFrame{
 					vista.setVisible(true);
 					vista.setResizable(false);
 					vista.setLocationRelativeTo(null);
-					Controlador controlador= new Controlador(vista);
+					Controlador controlador = new Controlador(vista);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
