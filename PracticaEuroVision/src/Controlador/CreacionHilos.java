@@ -560,11 +560,7 @@ public class CreacionHilos {
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-
-		// PERSISTIMOS LOS DATOS EN LA BASE DE DATOS PARA PODER RECUPERARLOS DESPUÉS
-		insertarVotosGenerales(sf, votantes);
-		insertarVotosEdad(sf, votantes);
-		insertarVotosComunidad(sf, votantes);
+    
 	}
 
 	public ArrayList<Integer> consultaVotantes(SessionFactory sessionFac, String nombreComunidad) {
@@ -847,52 +843,6 @@ public class CreacionHilos {
 			ResultadosEdad resultados26Anios;
 			ResultadosEdad resultados41Anios;
 			ResultadosEdad resultados66Anios;
-
-			for (int i = 0; i < edad_18_25.size(); i++) {
-				resultados18Anios = new ResultadosEdad();
-				resultados18Anios.setRango(edad_18_25.get(i).getRangoedad());
-				for (int j = 0; j < artistas.size(); j++) {
-					if (edad_18_25.get(i).getCantantevotado().equals(artistas.get(j).getNombre())) {
-						resultados18Anios.setArtista(artistas.get(j));
-						resultados18Anios.setNumeroVotosEdad(contador18Anios[j]);
-					}
-				}
-				session.saveOrUpdate(resultados18Anios);
-			}
-
-			for (int i = 0; i < edad_26_40.size(); i++) {
-				resultados26Anios = new ResultadosEdad();
-				resultados26Anios.setRango(edad_26_40.get(i).getRangoedad());
-				for (int j = 0; j < artistas.size(); j++) {
-					if (edad_26_40.get(i).getCantantevotado().equals(artistas.get(j).getNombre())) {
-						resultados26Anios.setArtista(artistas.get(j));
-						resultados26Anios.setNumeroVotosEdad(contador26Anios[j]);
-					}
-				}
-				session.saveOrUpdate(resultados26Anios);
-			}
-
-			for (int i = 0; i < edad_41_65.size(); i++) {
-				resultados41Anios = new ResultadosEdad();
-				resultados41Anios.setRango(edad_41_65.get(i).getRangoedad());
-				for (int j = 0; j < artistas.size(); j++) {
-					if (edad_41_65.get(i).getCantantevotado().equals(artistas.get(j).getNombre())) {
-						resultados41Anios.setArtista(artistas.get(j));
-						resultados41Anios.setNumeroVotosEdad(contador41Anios[j]);
-					}
-				}
-				session.saveOrUpdate(resultados41Anios);
-			}
-
-			for (int i = 0; i < edad_66_mas.size(); i++) {
-				resultados66Anios = new ResultadosEdad();
-				resultados66Anios.setRango(edad_66_mas.get(i).getRangoedad());
-				for (int j = 0; j < artistas.size(); j++) {
-					if (edad_66_mas.get(i).getCantantevotado().equals(artistas.get(j).getNombre())) {
-						resultados66Anios.setArtista(artistas.get(j));
-						resultados66Anios.setNumeroVotosEdad(contador66Anios[j]);
-					}
-				}
 				session.saveOrUpdate(resultados66Anios);
 			}
 			session.getTransaction().commit();

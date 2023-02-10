@@ -1,5 +1,5 @@
 package persistencias;
-// Generated 6 feb 2023 20:24:59 by Hibernate Tools 5.4.33.Final
+// Generated 10 feb 2023 0:50:55 by Hibernate Tools 5.4.33.Final
 
 import java.util.List;
 import java.util.logging.Level;
@@ -86,7 +86,7 @@ public class ResultadosComunidadHome {
 		}
 	}
 
-	public ResultadosComunidad findById(java.lang.String id) {
+	public ResultadosComunidad findById(int id) {
 		logger.log(Level.INFO, "getting ResultadosComunidad instance with id: " + id);
 		try {
 			ResultadosComunidad instance = (ResultadosComunidad) sessionFactory.getCurrentSession()
