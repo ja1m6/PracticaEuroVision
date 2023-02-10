@@ -18,10 +18,6 @@ import persistencias.ResultadosEdad;
 import persistencias.ResultadosGenerales;
 
 public class CreacionHilos {
-	public static void main (String [] args) {
-		CreacionHilos helper = new CreacionHilos();
-		helper.generarVotantes();
-	}
 	
 	public void generarVotantes() {
 		/*
@@ -561,21 +557,21 @@ public class CreacionHilos {
 			votantes.add(ciudadano);
 		}
 
-		System.out.println(votantes.size());
 		// PERSISTIMOS LOS DATOS EN LA BASE DE DATOS PARA PODER RECUPERARLOS DESPUÉS
 		eliminaresgistros(sf);
 		insertarVotosGenerales(sf, votantes);
 		insertarVotosEdad(sf, votantes);
-		//insertarVotosComunidad(sf, votantes);
+		insertarVotosComunidad(sf, votantes);
 	}
 
 	private void eliminaresgistros(SessionFactory sf) {
 		Session s =sf.getCurrentSession();
 		try {
 			s.beginTransaction();
-			Query q=s.createSQLQuery("delete from resultados_generales");
-			Query q2=s.createSQLQuery("delete from resultados_edad");
-			Query q3=s.createSQLQuery("delete from resultados_comunidad");
+			//Query q=s.createSQLQuery("delete from resultados_generales");
+			Query q2=s.createQuery("delete ResultadosEdad");
+			q2.executeUpdate();
+			//Query q3=s.createSQLQuery("delete from resultados_comunidad");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1003,475 +999,475 @@ public class CreacionHilos {
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE ANDALUCIA
 			for (int i = 0; i < andalucia.size(); i++) {
 				if (andalucia.get(i).getCantantevotado().equals("Joel")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[0]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Victoria")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[1]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Thiago")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[2]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Sarah")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[3]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Elton")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[4]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Amie")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[5]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Nahid")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[6]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Marc")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[7]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Alba")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[8]++;
 				} else if (andalucia.get(i).getCantantevotado().equals("Julio")) {
-					contadorAndalucia[i]++;
+					contadorAndalucia[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE ARAGON
 			for (int i = 0; i < aragon.size(); i++) {
 				if (aragon.get(i).getCantantevotado().equals("Joel")) {
-					contadorAragon[i]++;
+					contadorAragon[0]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Victoria")) {
-					contadorAragon[i]++;
+					contadorAragon[1]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Thiago")) {
-					contadorAragon[i]++;
+					contadorAragon[2]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Sarah")) {
-					contadorAragon[i]++;
+					contadorAragon[3]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Elton")) {
-					contadorAragon[i]++;
+					contadorAragon[4]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Amie")) {
-					contadorAragon[i]++;
+					contadorAragon[5]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Nahid")) {
-					contadorAragon[i]++;
+					contadorAragon[6]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Marc")) {
-					contadorAragon[i]++;
+					contadorAragon[7]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Alba")) {
-					contadorAragon[i]++;
+					contadorAragon[8]++;
 				} else if (aragon.get(i).getCantantevotado().equals("Julio")) {
-					contadorAragon[i]++;
+					contadorAragon[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE ASTURIAS
 			for (int i = 0; i < asturias.size(); i++) {
 				if (asturias.get(i).getCantantevotado().equals("Joel")) {
-					contadorAsturias[i]++;
+					contadorAsturias[0]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Victoria")) {
-					contadorAsturias[i]++;
+					contadorAsturias[1]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Thiago")) {
-					contadorAsturias[i]++;
+					contadorAsturias[2]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Sarah")) {
-					contadorAsturias[i]++;
+					contadorAsturias[3]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Elton")) {
-					contadorAsturias[i]++;
+					contadorAsturias[4]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Amie")) {
-					contadorAsturias[i]++;
+					contadorAsturias[5]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Nahid")) {
-					contadorAsturias[i]++;
+					contadorAsturias[6]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Marc")) {
-					contadorAsturias[i]++;
+					contadorAsturias[7]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Alba")) {
-					contadorAsturias[i]++;
+					contadorAsturias[8]++;
 				} else if (asturias.get(i).getCantantevotado().equals("Julio")) {
-					contadorAsturias[i]++;
+					contadorAsturias[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE ASTURIAS
 			for (int i = 0; i < baleares.size(); i++) {
 				if (baleares.get(i).getCantantevotado().equals("Joel")) {
-					contadorBaleares[i]++;
+					contadorBaleares[0]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Victoria")) {
-					contadorBaleares[i]++;
+					contadorBaleares[1]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Thiago")) {
-					contadorBaleares[i]++;
+					contadorBaleares[2]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Sarah")) {
-					contadorBaleares[i]++;
+					contadorBaleares[3]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Elton")) {
-					contadorBaleares[i]++;
+					contadorBaleares[4]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Amie")) {
-					contadorBaleares[i]++;
+					contadorBaleares[5]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Nahid")) {
-					contadorBaleares[i]++;
+					contadorBaleares[6]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Marc")) {
-					contadorBaleares[i]++;
+					contadorBaleares[7]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Alba")) {
-					contadorBaleares[i]++;
+					contadorBaleares[8]++;
 				} else if (baleares.get(i).getCantantevotado().equals("Julio")) {
-					contadorBaleares[i]++;
+					contadorBaleares[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CANARIAS
 			for (int i = 0; i < canarias.size(); i++) {
 				if (canarias.get(i).getCantantevotado().equals("Joel")) {
-					contadorCanarias[i]++;
+					contadorCanarias[0]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCanarias[i]++;
+					contadorCanarias[1]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCanarias[i]++;
+					contadorCanarias[2]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCanarias[i]++;
+					contadorCanarias[3]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Elton")) {
-					contadorCanarias[i]++;
+					contadorCanarias[4]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Amie")) {
-					contadorCanarias[i]++;
+					contadorCanarias[5]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCanarias[i]++;
+					contadorCanarias[6]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Marc")) {
-					contadorCanarias[i]++;
+					contadorCanarias[7]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Alba")) {
-					contadorCanarias[i]++;
+					contadorCanarias[8]++;
 				} else if (canarias.get(i).getCantantevotado().equals("Julio")) {
-					contadorCanarias[i]++;
+					contadorCanarias[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CANTABRIA
 			for (int i = 0; i < cantabria.size(); i++) {
 				if (cantabria.get(i).getCantantevotado().equals("Joel")) {
-					contadorCantabria[i]++;
+					contadorCantabria[0]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCantabria[i]++;
+					contadorCantabria[1]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCantabria[i]++;
+					contadorCantabria[2]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCantabria[i]++;
+					contadorCantabria[3]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Elton")) {
-					contadorCantabria[i]++;
+					contadorCantabria[4]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Amie")) {
-					contadorCantabria[i]++;
+					contadorCantabria[5]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCantabria[i]++;
+					contadorCantabria[6]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Marc")) {
-					contadorCantabria[i]++;
+					contadorCantabria[7]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Alba")) {
-					contadorCantabria[i]++;
+					contadorCantabria[8]++;
 				} else if (cantabria.get(i).getCantantevotado().equals("Julio")) {
-					contadorCantabria[i]++;
+					contadorCantabria[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CASTILLA LA MANCHA
 			for (int i = 0; i < castillaLaMancha.size(); i++) {
 				if (castillaLaMancha.get(i).getCantantevotado().equals("Joel")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[0]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[1]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[2]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[3]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Elton")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[4]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Amie")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[5]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[6]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Marc")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[7]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Alba")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[8]++;
 				} else if (castillaLaMancha.get(i).getCantantevotado().equals("Julio")) {
-					contadorCastillaLaMancha[i]++;
+					contadorCastillaLaMancha[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CASTILLA Y LEON
 			for (int i = 0; i < castillaYLeon.size(); i++) {
 				if (castillaYLeon.get(i).getCantantevotado().equals("Joel")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[0]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[1]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[2]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[3]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Elton")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[4]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Amie")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[5]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[6]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Marc")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[7]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Alba")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[8]++;
 				} else if (castillaYLeon.get(i).getCantantevotado().equals("Julio")) {
-					contadorCastillaYLeon[i]++;
+					contadorCastillaYLeon[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CATALUNIA
 			for (int i = 0; i < catalunia.size(); i++) {
 				if (catalunia.get(i).getCantantevotado().equals("Joel")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[0]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[1]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[2]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[3]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Elton")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[4]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Amie")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[5]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[6]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Marc")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[7]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Alba")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[8]++;
 				} else if (catalunia.get(i).getCantantevotado().equals("Julio")) {
-					contadorCatalunia[i]++;
+					contadorCatalunia[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE CEUTA
 			for (int i = 0; i < ceuta.size(); i++) {
 				if (ceuta.get(i).getCantantevotado().equals("Joel")) {
-					contadorCeuta[i]++;
+					contadorCeuta[0]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Victoria")) {
-					contadorCeuta[i]++;
+					contadorCeuta[1]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Thiago")) {
-					contadorCeuta[i]++;
+					contadorCeuta[2]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Sarah")) {
-					contadorCeuta[i]++;
+					contadorCeuta[3]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Elton")) {
-					contadorCeuta[i]++;
+					contadorCeuta[4]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Amie")) {
-					contadorCeuta[i]++;
+					contadorCeuta[5]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Nahid")) {
-					contadorCeuta[i]++;
+					contadorCeuta[6]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Marc")) {
-					contadorCeuta[i]++;
+					contadorCeuta[7]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Alba")) {
-					contadorCeuta[i]++;
+					contadorCeuta[8]++;
 				} else if (ceuta.get(i).getCantantevotado().equals("Julio")) {
-					contadorCeuta[i]++;
+					contadorCeuta[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE VALENCIA
 			for (int i = 0; i < valencia.size(); i++) {
 				if (valencia.get(i).getCantantevotado().equals("Joel")) {
-					contadorValencia[i]++;
+					contadorValencia[0]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Victoria")) {
-					contadorValencia[i]++;
+					contadorValencia[1]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Thiago")) {
-					contadorValencia[i]++;
+					contadorValencia[2]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Sarah")) {
-					contadorValencia[i]++;
+					contadorValencia[3]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Elton")) {
-					contadorValencia[i]++;
+					contadorValencia[4]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Amie")) {
-					contadorValencia[i]++;
+					contadorValencia[5]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Nahid")) {
-					contadorValencia[i]++;
+					contadorValencia[6]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Marc")) {
-					contadorValencia[i]++;
+					contadorValencia[7]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Alba")) {
-					contadorValencia[i]++;
+					contadorValencia[8]++;
 				} else if (valencia.get(i).getCantantevotado().equals("Julio")) {
-					contadorValencia[i]++;
+					contadorValencia[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE EXTREMADURA
 			for (int i = 0; i < extremadura.size(); i++) {
 				if (extremadura.get(i).getCantantevotado().equals("Joel")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[0]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Victoria")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[1]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Thiago")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[2]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Sarah")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[3]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Elton")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[4]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Amie")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[5]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Nahid")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[6]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Marc")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[7]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Alba")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[8]++;
 				} else if (extremadura.get(i).getCantantevotado().equals("Julio")) {
-					contadorExtremadura[i]++;
+					contadorExtremadura[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE GALICIA
 			for (int i = 0; i < galicia.size(); i++) {
 				if (galicia.get(i).getCantantevotado().equals("Joel")) {
-					contadorGalicia[i]++;
+					contadorGalicia[0]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Victoria")) {
-					contadorGalicia[i]++;
+					contadorGalicia[1]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Thiago")) {
-					contadorGalicia[i]++;
+					contadorGalicia[2]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Sarah")) {
-					contadorGalicia[i]++;
+					contadorGalicia[3]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Elton")) {
-					contadorGalicia[i]++;
+					contadorGalicia[4]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Amie")) {
-					contadorGalicia[i]++;
+					contadorGalicia[5]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Nahid")) {
-					contadorGalicia[i]++;
+					contadorGalicia[6]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Marc")) {
-					contadorGalicia[i]++;
+					contadorGalicia[7]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Alba")) {
-					contadorGalicia[i]++;
+					contadorGalicia[8]++;
 				} else if (galicia.get(i).getCantantevotado().equals("Julio")) {
-					contadorGalicia[i]++;
+					contadorGalicia[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE LA RIOJA
 			for (int i = 0; i < laRioja.size(); i++) {
 				if (laRioja.get(i).getCantantevotado().equals("Joel")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[0]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Victoria")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[1]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Thiago")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[2]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Sarah")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[3]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Elton")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[4]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Amie")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[5]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Nahid")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[6]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Marc")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[7]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Alba")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[8]++;
 				} else if (laRioja.get(i).getCantantevotado().equals("Julio")) {
-					contadorLaRioja[i]++;
+					contadorLaRioja[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE MADRID
 			for (int i = 0; i < madrid.size(); i++) {
 				if (madrid.get(i).getCantantevotado().equals("Joel")) {
-					contadorMadrid[i]++;
+					contadorMadrid[0]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Victoria")) {
-					contadorMadrid[i]++;
+					contadorMadrid[1]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Thiago")) {
-					contadorMadrid[i]++;
+					contadorMadrid[2]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Sarah")) {
-					contadorMadrid[i]++;
+					contadorMadrid[3]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Elton")) {
-					contadorMadrid[i]++;
+					contadorMadrid[4]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Amie")) {
-					contadorMadrid[i]++;
+					contadorMadrid[5]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Nahid")) {
-					contadorMadrid[i]++;
+					contadorMadrid[6]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Marc")) {
-					contadorMadrid[i]++;
+					contadorMadrid[7]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Alba")) {
-					contadorMadrid[i]++;
+					contadorMadrid[8]++;
 				} else if (madrid.get(i).getCantantevotado().equals("Julio")) {
-					contadorMadrid[i]++;
+					contadorMadrid[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE MELILLA
 			for (int i = 0; i < melilla.size(); i++) {
 				if (melilla.get(i).getCantantevotado().equals("Joel")) {
-					contadorMelilla[i]++;
+					contadorMelilla[0]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Victoria")) {
-					contadorMelilla[i]++;
+					contadorMelilla[1]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Thiago")) {
-					contadorMelilla[i]++;
+					contadorMelilla[2]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Sarah")) {
-					contadorMelilla[i]++;
+					contadorMelilla[3]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Elton")) {
-					contadorMelilla[i]++;
+					contadorMelilla[4]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Amie")) {
-					contadorMelilla[i]++;
+					contadorMelilla[5]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Nahid")) {
-					contadorMelilla[i]++;
+					contadorMelilla[6]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Marc")) {
-					contadorMelilla[i]++;
+					contadorMelilla[7]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Alba")) {
-					contadorMelilla[i]++;
+					contadorMelilla[8]++;
 				} else if (melilla.get(i).getCantantevotado().equals("Julio")) {
-					contadorMelilla[i]++;
+					contadorMelilla[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE MURCIA
 			for (int i = 0; i < murcia.size(); i++) {
 				if (murcia.get(i).getCantantevotado().equals("Joel")) {
-					contadorMurcia[i]++;
+					contadorMurcia[0]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Victoria")) {
-					contadorMurcia[i]++;
+					contadorMurcia[1]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Thiago")) {
-					contadorMurcia[i]++;
+					contadorMurcia[2]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Sarah")) {
-					contadorMurcia[i]++;
+					contadorMurcia[3]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Elton")) {
-					contadorMurcia[i]++;
+					contadorMurcia[4]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Amie")) {
-					contadorMurcia[i]++;
+					contadorMurcia[5]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Nahid")) {
-					contadorMurcia[i]++;
+					contadorMurcia[6]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Marc")) {
-					contadorMurcia[i]++;
+					contadorMurcia[7]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Alba")) {
-					contadorMurcia[i]++;
+					contadorMurcia[8]++;
 				} else if (murcia.get(i).getCantantevotado().equals("Julio")) {
-					contadorMurcia[i]++;
+					contadorMurcia[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE NAVARRA
 			for (int i = 0; i < navarra.size(); i++) {
 				if (navarra.get(i).getCantantevotado().equals("Joel")) {
-					contadorNavarra[i]++;
+					contadorNavarra[0]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Victoria")) {
-					contadorNavarra[i]++;
+					contadorNavarra[1]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Thiago")) {
-					contadorNavarra[i]++;
+					contadorNavarra[2]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Sarah")) {
-					contadorNavarra[i]++;
+					contadorNavarra[3]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Elton")) {
-					contadorNavarra[i]++;
+					contadorNavarra[4]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Amie")) {
-					contadorNavarra[i]++;
+					contadorNavarra[5]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Nahid")) {
-					contadorNavarra[i]++;
+					contadorNavarra[6]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Marc")) {
-					contadorNavarra[i]++;
+					contadorNavarra[7]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Alba")) {
-					contadorNavarra[i]++;
+					contadorNavarra[8]++;
 				} else if (navarra.get(i).getCantantevotado().equals("Julio")) {
-					contadorNavarra[i]++;
+					contadorNavarra[9]++;
 				}
 			}
 
 			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DE PAIS VASCO
 			for (int i = 0; i < paisVasco.size(); i++) {
 				if (paisVasco.get(i).getCantantevotado().equals("Joel")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[0]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Victoria")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[1]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Thiago")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[2]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Sarah")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[3]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Elton")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[4]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Amie")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[5]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Nahid")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[6]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Marc")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[7]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Alba")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[8]++;
 				} else if (paisVasco.get(i).getCantantevotado().equals("Julio")) {
-					contadorPaisVasco[i]++;
+					contadorPaisVasco[9]++;
 				}
 			}
 
@@ -1491,15 +1487,153 @@ public class CreacionHilos {
 			ResultadosComunidad resultadosCatalunia;
 			ResultadosComunidad resultadosCeuta;
 			ResultadosComunidad resultadosValencia;
+			ResultadosComunidad resultadosExtremadura;
+			ResultadosComunidad resultadosGalicia;
 			ResultadosComunidad resultadosLaRioja;
 			ResultadosComunidad resultadosMadrid;
 			ResultadosComunidad resultadosMelilla;
 			ResultadosComunidad resultadosMurcia;
 			ResultadosComunidad resultadosNavarra;
 			ResultadosComunidad resultadosPaisVasco;
-
+			int n=11;
+			for(int i=0;i<artistas.size();i++) {
+				resultadosAndalucia=new ResultadosComunidad();
+				resultadosAndalucia.setIdResultadoComunidad(n);
+				resultadosAndalucia.setArtista(artistas.get(i));
+				resultadosAndalucia.setNombreComunidad("Andalucia");
+				resultadosAndalucia.setNumeroVotosComunidad(contadorAndalucia[i]);
+				n=n+1;
+				resultadosAragon=new ResultadosComunidad();
+				resultadosAragon.setArtista(artistas.get(i));
+				resultadosAragon.setIdResultadoComunidad(n);
+				resultadosAragon.setNombreComunidad("Aragon");
+				resultadosAragon.setNumeroVotosComunidad(contadorAragon[i]);
+				n=n+1;
+				resultadosAsturias=new ResultadosComunidad();
+				resultadosAsturias.setArtista(artistas.get(i));
+				resultadosAsturias.setIdResultadoComunidad(n);
+				resultadosAsturias.setNombreComunidad("Asturias");
+				resultadosAsturias.setNumeroVotosComunidad(contadorAsturias[i]);
+				n=n+1;
+				resultadosBaleares=new ResultadosComunidad();
+				resultadosBaleares.setArtista(artistas.get(i));
+				resultadosBaleares.setIdResultadoComunidad(n);
+				resultadosBaleares.setNombreComunidad("Baleares");
+				resultadosBaleares.setNumeroVotosComunidad(contadorBaleares[i]);
+				resultadosBaleares.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCanarias=new ResultadosComunidad();
+				resultadosCanarias.setArtista(artistas.get(i));
+				resultadosCanarias.setNombreComunidad("Canarias");
+				resultadosCanarias.setNumeroVotosComunidad(contadorCanarias[i]);
+				resultadosCanarias.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCantabria=new ResultadosComunidad();
+				resultadosCantabria.setArtista(artistas.get(i));
+				resultadosCantabria.setNombreComunidad("Cantabria");
+				resultadosCantabria.setNumeroVotosComunidad(contadorCantabria[i]);
+				resultadosCantabria.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCastillaLaMancha=new ResultadosComunidad();
+				resultadosCastillaLaMancha.setArtista(artistas.get(i));
+				resultadosCastillaLaMancha.setNombreComunidad("Castilla La Mancha");
+				resultadosCastillaLaMancha.setNumeroVotosComunidad(contadorCastillaLaMancha[i]);
+				resultadosCastillaLaMancha.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCastillaYLeon=new ResultadosComunidad();
+				resultadosCastillaYLeon.setArtista(artistas.get(i));
+				resultadosCastillaYLeon.setNombreComunidad("Castilla y Leon");
+				resultadosCastillaYLeon.setNumeroVotosComunidad(contadorCastillaYLeon[i]);
+				resultadosCastillaYLeon.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCatalunia=new ResultadosComunidad();
+				resultadosCatalunia.setArtista(artistas.get(i));
+				resultadosCatalunia.setNombreComunidad("Catalunia");
+				resultadosCatalunia.setNumeroVotosComunidad(contadorCatalunia[i]);
+				resultadosCatalunia.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosCeuta=new ResultadosComunidad();
+				resultadosCeuta.setArtista(artistas.get(i));
+				resultadosCeuta.setNombreComunidad("Ceuta");
+				resultadosCeuta.setNumeroVotosComunidad(contadorCeuta[i]);
+				resultadosCeuta.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosValencia=new ResultadosComunidad();
+				resultadosValencia.setArtista(artistas.get(i));
+				resultadosValencia.setNombreComunidad("Comunidad Valenciana");
+				resultadosValencia.setNumeroVotosComunidad(contadorValencia[i]);
+				resultadosValencia.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosExtremadura=new ResultadosComunidad();
+				resultadosExtremadura.setArtista(artistas.get(i));
+				resultadosExtremadura.setNombreComunidad("Extremadura");
+				resultadosExtremadura.setNumeroVotosComunidad(contadorExtremadura[i]);
+				resultadosExtremadura.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosGalicia=new ResultadosComunidad();
+				resultadosGalicia.setArtista(artistas.get(i));
+				resultadosGalicia.setNombreComunidad("Galicia");
+				resultadosGalicia.setNumeroVotosComunidad(contadorGalicia[i]);
+				resultadosGalicia.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosLaRioja=new ResultadosComunidad();
+				resultadosLaRioja.setArtista(artistas.get(i));
+				resultadosLaRioja.setNombreComunidad("La Rioja");
+				resultadosLaRioja.setNumeroVotosComunidad(contadorLaRioja[i]);
+				resultadosLaRioja.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosMadrid=new ResultadosComunidad();
+				resultadosMadrid.setArtista(artistas.get(i));
+				resultadosMadrid.setNombreComunidad("Madrid");
+				resultadosMadrid.setNumeroVotosComunidad(contadorMadrid[i]);
+				resultadosMadrid.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosMelilla=new ResultadosComunidad();
+				resultadosMelilla.setArtista(artistas.get(i));
+				resultadosMelilla.setNombreComunidad("Melilla");
+				resultadosMelilla.setNumeroVotosComunidad(contadorMelilla[i]);
+				resultadosMelilla.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosMurcia=new ResultadosComunidad();
+				resultadosMurcia.setArtista(artistas.get(i));
+				resultadosMurcia.setNombreComunidad("Murcia");
+				resultadosMurcia.setNumeroVotosComunidad(contadorMurcia[i]);
+				resultadosMurcia.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosNavarra=new ResultadosComunidad();
+				resultadosNavarra.setArtista(artistas.get(i));
+				resultadosNavarra.setNombreComunidad("Navarra");
+				resultadosNavarra.setNumeroVotosComunidad(contadorNavarra[i]);
+				resultadosNavarra.setIdResultadoComunidad(n);
+				n=n+1;
+				resultadosPaisVasco=new ResultadosComunidad();
+				resultadosPaisVasco.setArtista(artistas.get(i));
+				resultadosPaisVasco.setNombreComunidad("Pais Vasco");
+				resultadosPaisVasco.setNumeroVotosComunidad(contadorPaisVasco[i]);
+				resultadosPaisVasco.setIdResultadoComunidad(n);
+				n=n+1;
+				
+				session.saveOrUpdate(resultadosAndalucia);
+				session.saveOrUpdate(resultadosAragon);
+				session.saveOrUpdate(resultadosAsturias);
+				session.saveOrUpdate(resultadosBaleares);
+				session.saveOrUpdate(resultadosCanarias);
+				session.saveOrUpdate(resultadosCantabria);
+				session.saveOrUpdate(resultadosCastillaLaMancha);
+				session.saveOrUpdate(resultadosCastillaYLeon);
+				session.saveOrUpdate(resultadosCatalunia);
+				session.saveOrUpdate(resultadosCeuta);
+				session.saveOrUpdate(resultadosValencia);
+				session.saveOrUpdate(resultadosExtremadura);
+				session.saveOrUpdate(resultadosGalicia);
+				session.saveOrUpdate(resultadosPaisVasco);
+				session.saveOrUpdate(resultadosLaRioja);
+				session.saveOrUpdate(resultadosMadrid);
+				session.saveOrUpdate(resultadosMelilla);
+				session.saveOrUpdate(resultadosMurcia);
+				session.saveOrUpdate(resultadosNavarra);
+			}
 			
-
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
