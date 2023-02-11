@@ -25,16 +25,13 @@ import javax.swing.JMenuItem;
 public class Vista extends JFrame{
 	
 	public JPanel contentPane,ppersonalizacion,colorprevisto,panelcomunidades,paneledades;
-	public JButton btsalirpersonalizacion,btcastillaleon,btasturias,btcomprobarpersonalizacion,btsalircomunidades,btgalicia;
-	public JLabel label_imgBenidormF,textovistapreviap,textocolordigito3,textocolordigito2,textocolordigito1,textocolor1,textocolor2,textocolor3,mapacomunidades;
+	public JButton btsalirpersonalizacion,btcastillaleon,btasturias,btcomprobarpersonalizacion,btsalircomunidades,btgalicia,btnavarra,btcantabria,btsaliredades,bt18anios,btpaisvasco,bt26anios,bt41anios,bt66anios;
+	public JLabel nombreedad1,puntoscomun1,puntoscomun2,puntoscomun3,puntosedad1,ftedad1,puntosedad2,puntosedad3,puntosedad3ftedad1,ftedad2,ftedad3,nombreedad2,nombreedad3,label_imgBenidormF,mapaedades,textovistapreviap,textocolordigito3,textocolordigito2,textocolordigito1,textocolor1,textocolor2,textocolor3,mapacomunidades,ftcomunidad1,ftcomunidad2,ftcomunidad3,nombrecomun1,nombrecomun2,nombrecomun3;
 	public JTextField colordigito1,colordigito2,colordigito3;
 	public JMenuBar mb;
-	public JMenu menuFondo,menuCuadros,menuLetra,menuColorFondo,menuColorLetras,menuColorCuadros,menuColorNuevo,menuVerVotosporComunidad,menuPersonalizacion;
-	public JMenuItem fondorojo,fondonegro,fondoazul,fondoblanco,crearcolor,fondoverde,nuevofondo,nuevocuadro,nuevoletra,cuadroverde,cuadroblanco,cuadronegro,cuadroazul,cuadrorojo,letrarojo,letranegro,letraazul,letrablanco,letragris,letraverde,mostrarcomunidades;
+	public JMenu menuFondo,menuCuadros,menuLetra,menuColorFondo,menuColorLetras,menuColorCuadros,menuColorNuevo,menuVerVotosporComunidad,menuPersonalizacion,menuVerVotosporEdad;
+	public JMenuItem fondorojo,mostraredades,fondonegro,fondoazul,fondoblanco,crearcolor,fondoverde,nuevofondo,nuevocuadro,nuevoletra,cuadroverde,cuadroblanco,cuadronegro,cuadroazul,cuadrorojo,letrarojo,letranegro,letraazul,letrablanco,letragris,letraverde,mostrarcomunidades;
 	private JButton btcatalunia,btcastillamancha,btextremadura,btandalucia,btaragon,btmurcia,bislasbaleares,btvalencia,btmadrid,btlarioja,bislascanarias,bceuta,bmelilla;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
 
 	
 	public static void main(String[] args) {
@@ -93,6 +90,14 @@ public class Vista extends JFrame{
 			      mostrarcomunidades=new JMenuItem("Mostrar");
 			      mostrarcomunidades.setFont(new Font("Andale Mono", 1, 14));
 			      menuVerVotosporComunidad.add(mostrarcomunidades);
+			      
+			      menuVerVotosporEdad=new JMenu("Votos Edades");
+			      menuVerVotosporEdad.setFont(new Font("Andale Mono", 1, 14));
+			      mb.add(menuVerVotosporEdad);
+			      
+			      mostraredades=new JMenuItem("Mostrar");
+			      mostraredades.setFont(new Font("Andale Mono", 1, 14));
+			      menuVerVotosporEdad.add(mostraredades);
 			      
 			      crearcolor = new JMenuItem("Crear");
 			      crearcolor.setFont(new Font("Andale Mono", 1, 14));
@@ -182,6 +187,215 @@ public class Vista extends JFrame{
 			      nuevofondo = new JMenuItem("Nuevo Color");
 			      nuevofondo.setFont(new Font("Andale Mono", 1, 14));
 			      menuFondo.add(nuevofondo);
+			      
+			    //Panel EDADES
+			      paneledades = new JPanel();
+			      paneledades.setBackground(Color.WHITE);
+			      paneledades.setBounds(0, 0, 1236, 688);
+			      contentPane.add(paneledades);
+			      paneledades.setLayout(null);
+			      paneledades.setVisible(false);
+			      
+			      //AGREAR FUNCIONES PANEL EDADES
+			      
+			      btsaliredades = new JButton("Salir");
+			      btsaliredades.setBounds(0, 0, 128, 44);
+			      btsaliredades.setFont(new Font("Andale Mono", 1, 14));
+				  paneledades.add(btsaliredades);
+			      
+			      ImageIcon fotoedad1 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotoedad1t = fotoedad1.getImage(); // transform it 
+					 Image fotoedad1tt = fotoedad1t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotoedad1 = new ImageIcon(fotoedad1tt);
+				     ftedad1 = new JLabel(fotoedad1);
+				     ftedad1.setBounds(10, 155, 135, 135);
+				     paneledades.add(ftedad1);
+				      
+				     ImageIcon fotoedad2 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotoedad2t = fotoedad2.getImage(); // transform it 
+					 Image fotoedad2tt = fotoedad2t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotoedad2 = new ImageIcon(fotoedad2tt);
+					 ftedad2 = new JLabel(fotoedad2);
+					 ftedad2.setBounds(10, 311, 135, 135);
+				     paneledades.add(ftedad2);
+				      
+				     ImageIcon fotoedad3 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotoedad3t = fotoedad3.getImage(); // transform it 
+					 Image fotoedad3tt = fotoedad3t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotoedad3 = new ImageIcon(fotoedad3tt);
+					 ftedad3 = new JLabel(fotoedad3);
+					 ftedad3.setBounds(10, 466, 135, 135);
+				     paneledades.add(ftedad3);
+				     
+				     nombreedad1 = new JLabel("?");
+				     nombreedad1.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombreedad1.setBounds(155, 188, 97, 35);
+				     nombreedad1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     paneledades.add(nombreedad1);
+				     
+				     nombreedad2 = new JLabel("?");
+				     nombreedad2.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombreedad2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     nombreedad2.setBounds(155, 346, 97, 35);
+				     paneledades.add(nombreedad2);
+				     
+				     nombreedad3 = new JLabel("?");
+				     nombreedad3.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombreedad3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     nombreedad3.setBounds(155, 500, 97, 35);
+				     paneledades.add(nombreedad3);
+				     
+				     puntosedad1 = new JLabel("PTS. ?");
+				     puntosedad1.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntosedad1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntosedad1.setBounds(139, 229, 134, 35);
+				     paneledades.add(puntosedad1);
+				     
+				     puntosedad2 = new JLabel("PTS. ?");
+				     puntosedad2.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntosedad2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntosedad2.setBounds(139, 380, 134, 35);
+				     paneledades.add(puntosedad2);
+				     
+				     puntosedad3 = new JLabel("PTS. ?");
+				     puntosedad3.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntosedad3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntosedad3.setBounds(139, 544, 134, 35);
+				     paneledades.add(puntosedad3);
+				     
+				     bt18anios = new JButton("18-25 AÑOS");
+				     bt18anios.setFocusCycleRoot(true);
+				     bt18anios.setHorizontalTextPosition(SwingConstants.CENTER);
+				     bt18anios.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
+				     bt18anios.setActionCommand("");
+				     bt18anios.setBounds(388, 184, 148, 44);
+				     bt18anios.setBackground(paneledades.getBackground());
+				     bt18anios.setBorderPainted(false);
+				      paneledades.add(bt18anios);
+				      
+				      bt26anios = new JButton("26-40 AÑOS");
+				      bt26anios.setHorizontalTextPosition(SwingConstants.CENTER);
+				      bt26anios.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
+				      bt26anios.setFocusCycleRoot(true);
+				      bt26anios.setBorderPainted(false);
+				      bt26anios.setBackground(Color.WHITE);
+				      bt26anios.setActionCommand("");
+				      bt26anios.setBounds(551, 121, 148, 44);
+				      paneledades.add(bt26anios);
+				      
+				      bt41anios = new JButton("41-65 AÑOS");
+				      bt41anios.setHorizontalTextPosition(SwingConstants.CENTER);
+				      bt41anios.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
+				      bt41anios.setFocusCycleRoot(true);
+				      bt41anios.setBorderPainted(false);
+				      bt41anios.setBackground(Color.WHITE);
+				      bt41anios.setActionCommand("");
+				      bt41anios.setBounds(737, 13, 148, 44);
+				      paneledades.add(bt41anios);
+				      
+				      bt66anios = new JButton("66 Y MAS AÑOS");
+				      bt66anios.setHorizontalTextPosition(SwingConstants.CENTER);
+				      bt66anios.setFont(new Font("Yu Gothic Medium", Font.BOLD, 14));
+				      bt66anios.setFocusCycleRoot(true);
+				      bt66anios.setBorderPainted(false);
+				      bt66anios.setBackground(Color.WHITE);
+				      bt66anios.setActionCommand("");
+				      bt66anios.setBounds(931, 69, 148, 44);
+				      paneledades.add(bt66anios);
+			      
+			      ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/mapa_edades.png")); 
+				  Image fotoedt = fotoed.getImage(); // transform it 
+				  Image fotoedtt = fotoedt.getScaledInstance(943, 678,  java.awt.Image.SCALE_SMOOTH); 
+				  fotoed = new ImageIcon(fotoedtt);
+			      mapaedades = new JLabel(fotoed);
+			      mapaedades.setBounds(283, 0, 943, 678);
+			      paneledades.add(mapaedades);
+			      
+			      
+		    //Panel para Crear Color
+		      ppersonalizacion = new JPanel();
+		      ppersonalizacion.setBackground(Color.WHITE);
+		      ppersonalizacion.setBounds(0, 0, 777, 442);
+			  contentPane.add(ppersonalizacion);
+			  ppersonalizacion.setLayout(null);
+			  ppersonalizacion.setVisible(false);
+				
+				textocolor1 = new JLabel("Primer Digito");
+				textocolor1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textocolor1.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolor1.setBounds(24, 106, 174, 35);
+				ppersonalizacion.add(textocolor1);
+				
+				textocolor2 = new JLabel("Segundo Digito");
+				textocolor2.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolor2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textocolor2.setBounds(24, 198, 174, 35);
+				ppersonalizacion.add(textocolor2);
+				
+				textocolor3 = new JLabel("Tercer Digito");
+				textocolor3.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolor3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textocolor3.setBounds(24, 282, 174, 35);
+				ppersonalizacion.add(textocolor3);
+				
+				colordigito1 = new JTextField();
+				colordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colordigito1.setBounds(67, 133, 96, 35);
+				ppersonalizacion.add(colordigito1);
+				colordigito1.setColumns(10);
+				
+				colordigito2 = new JTextField();
+				colordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colordigito2.setColumns(10);
+				colordigito2.setBounds(67, 231, 96, 35);
+				ppersonalizacion.add(colordigito2);
+				
+				colordigito3 = new JTextField();
+				colordigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colordigito3.setColumns(10);
+				colordigito3.setBounds(67, 316, 96, 35);
+				ppersonalizacion.add(colordigito3);
+				
+				textocolordigito1 = new JLabel("Inserte Digito (0...250)");
+				textocolordigito1.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textocolordigito1.setBounds(153, 133, 174, 35);
+				ppersonalizacion.add(textocolordigito1);
+				
+				textocolordigito2 = new JLabel("Inserte Digito (0...250)");
+				textocolordigito2.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textocolordigito2.setBounds(153, 231, 174, 35);
+				ppersonalizacion.add(textocolordigito2);
+				
+				textocolordigito3 = new JLabel("Inserte Digito (0...250)");
+				textocolordigito3.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolordigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textocolordigito3.setBounds(153, 316, 174, 35);
+				ppersonalizacion.add(textocolordigito3);
+				
+				colorprevisto = new JPanel();
+				colorprevisto.setBackground(Color.BLACK);
+				colorprevisto.setBounds(458, 88, 228, 229);
+				ppersonalizacion.add(colorprevisto);
+				
+				textovistapreviap = new JLabel("Vista Previa");
+				textovistapreviap.setHorizontalAlignment(SwingConstants.CENTER);
+				textovistapreviap.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 25));
+				textovistapreviap.setBounds(494, 43, 174, 35);
+				ppersonalizacion.add(textovistapreviap);
+				
+				btcomprobarpersonalizacion = new JButton("Comprobar");
+				btcomprobarpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
+				btcomprobarpersonalizacion.setBounds(127, 377, 131, 35);
+				ppersonalizacion.add(btcomprobarpersonalizacion);
+				
+				btsalirpersonalizacion = new JButton("Salir");
+				btsalirpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
+				btsalirpersonalizacion.setBounds(555, 377, 131, 35);
+				ppersonalizacion.add(btsalirpersonalizacion);
+				
+			      
 			      //Panel Comunidades
 			      panelcomunidades = new JPanel();
 			      panelcomunidades.setBackground(Color.WHITE);
@@ -321,6 +535,36 @@ public class Vista extends JFrame{
 				      bislasbaleares.setBounds(1033, 215, 193, 44);
 				      panelcomunidades.add(bislasbaleares);
 				      
+				      btcantabria = new JButton("CANTABRIA");
+				      btcantabria.setHorizontalTextPosition(SwingConstants.CENTER);
+				      btcantabria.setFont(new Font("Yu Gothic Medium", Font.BOLD, 7));
+				      btcantabria.setFocusCycleRoot(true);
+				      btcantabria.setBorderPainted(false);
+				      btcantabria.setBackground(new Color(161, 233, 213));
+				      btcantabria.setActionCommand("");
+				      btcantabria.setBounds(604, 29, 64, 44);
+				      panelcomunidades.add(btcantabria);
+				      
+				      btnavarra = new JButton("NAVARRA");
+				      btnavarra.setHorizontalTextPosition(SwingConstants.CENTER);
+				      btnavarra.setFont(new Font("Yu Gothic Medium", Font.BOLD, 7));
+				      btnavarra.setFocusCycleRoot(true);
+				      btnavarra.setBorderPainted(false);
+				      btnavarra.setBackground(new Color(161, 233, 213));
+				      btnavarra.setActionCommand("");
+				      btnavarra.setBounds(768, 66, 64, 44);
+				      panelcomunidades.add(btnavarra);
+				      
+				      btpaisvasco = new JButton("PAIS VASCO");
+				      btpaisvasco.setHorizontalTextPosition(SwingConstants.CENTER);
+				      btpaisvasco.setFont(new Font("Yu Gothic Medium", Font.BOLD, 7));
+				      btpaisvasco.setFocusCycleRoot(true);
+				      btpaisvasco.setBorderPainted(false);
+				      btpaisvasco.setBackground(new Color(161, 233, 213));
+				      btpaisvasco.setActionCommand("");
+				      btpaisvasco.setBounds(707, 44, 64, 44);
+				      panelcomunidades.add(btpaisvasco);
+				      
 				      btlarioja = new JButton("LARIOJA");
 				      btlarioja.setHorizontalTextPosition(SwingConstants.CENTER);
 				      btlarioja.setFont(new Font("Yu Gothic Medium", Font.BOLD, 7));
@@ -350,6 +594,7 @@ public class Vista extends JFrame{
 				      bceuta.setActionCommand("");
 				      bceuta.setBounds(436, 582, 193, 44);
 				      panelcomunidades.add(bceuta);
+				      
 				      mapacomunidades = new JLabel(fotomp);
 				      mapacomunidades.setBounds(283, 0, 943, 678);
 				      panelcomunidades.add(mapacomunidades);
@@ -364,100 +609,66 @@ public class Vista extends JFrame{
 				      bmelilla.setBounds(593, 623, 193, 44);
 				      panelcomunidades.add(bmelilla);
 				      
-				      lblNewLabel = new JLabel("New label");
-				      lblNewLabel.setBounds(10, 155, 135, 135);
-				      panelcomunidades.add(lblNewLabel);
+				     ImageIcon fotocomun1 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotocomun1t = fotocomun1.getImage(); // transform it 
+					 Image fotocomun1tt = fotocomun1t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotocomun1 = new ImageIcon(fotocomun1tt);
+				     ftcomunidad1 = new JLabel(fotocomun1);
+				     ftcomunidad1.setBounds(10, 155, 135, 135);
+				     panelcomunidades.add(ftcomunidad1);
 				      
-				      lblNewLabel_1 = new JLabel("New label");
-				      lblNewLabel_1.setBounds(10, 311, 135, 135);
-				      panelcomunidades.add(lblNewLabel_1);
+				     ImageIcon fotocomun2 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotocomun2t = fotocomun2.getImage(); // transform it 
+					 Image fotocomun2tt = fotocomun2t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotocomun2 = new ImageIcon(fotocomun2tt);
+				     ftcomunidad2 = new JLabel(fotocomun2);
+				     ftcomunidad2.setBounds(10, 311, 135, 135);
+				     panelcomunidades.add(ftcomunidad2);
 				      
-				      lblNewLabel_2 = new JLabel("New label");
-				      lblNewLabel_2.setBounds(10, 466, 135, 135);
-				      panelcomunidades.add(lblNewLabel_2);
-			      
-			    //Panel para Crear Color
-			      ppersonalizacion = new JPanel();
-			      ppersonalizacion.setBackground(Color.WHITE);
-			      ppersonalizacion.setBounds(0, 0, 777, 442);
-				  contentPane.add(ppersonalizacion);
-				  ppersonalizacion.setLayout(null);
-				  ppersonalizacion.setVisible(false);
-					
-					textocolor1 = new JLabel("Primer Digito");
-					textocolor1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-					textocolor1.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolor1.setBounds(24, 106, 174, 35);
-					ppersonalizacion.add(textocolor1);
-					
-					textocolor2 = new JLabel("Segundo Digito");
-					textocolor2.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolor2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-					textocolor2.setBounds(24, 198, 174, 35);
-					ppersonalizacion.add(textocolor2);
-					
-					textocolor3 = new JLabel("Tercer Digito");
-					textocolor3.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolor3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-					textocolor3.setBounds(24, 282, 174, 35);
-					ppersonalizacion.add(textocolor3);
-					
-					colordigito1 = new JTextField();
-					colordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-					colordigito1.setBounds(67, 133, 96, 35);
-					ppersonalizacion.add(colordigito1);
-					colordigito1.setColumns(10);
-					
-					colordigito2 = new JTextField();
-					colordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-					colordigito2.setColumns(10);
-					colordigito2.setBounds(67, 231, 96, 35);
-					ppersonalizacion.add(colordigito2);
-					
-					colordigito3 = new JTextField();
-					colordigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-					colordigito3.setColumns(10);
-					colordigito3.setBounds(67, 316, 96, 35);
-					ppersonalizacion.add(colordigito3);
-					
-					textocolordigito1 = new JLabel("Inserte Digito (0...250)");
-					textocolordigito1.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-					textocolordigito1.setBounds(153, 133, 174, 35);
-					ppersonalizacion.add(textocolordigito1);
-					
-					textocolordigito2 = new JLabel("Inserte Digito (0...250)");
-					textocolordigito2.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-					textocolordigito2.setBounds(153, 231, 174, 35);
-					ppersonalizacion.add(textocolordigito2);
-					
-					textocolordigito3 = new JLabel("Inserte Digito (0...250)");
-					textocolordigito3.setHorizontalAlignment(SwingConstants.CENTER);
-					textocolordigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-					textocolordigito3.setBounds(153, 316, 174, 35);
-					ppersonalizacion.add(textocolordigito3);
-					
-					colorprevisto = new JPanel();
-					colorprevisto.setBackground(Color.BLACK);
-					colorprevisto.setBounds(458, 88, 228, 229);
-					ppersonalizacion.add(colorprevisto);
-					
-					textovistapreviap = new JLabel("Vista Previa");
-					textovistapreviap.setHorizontalAlignment(SwingConstants.CENTER);
-					textovistapreviap.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 25));
-					textovistapreviap.setBounds(494, 43, 174, 35);
-					ppersonalizacion.add(textovistapreviap);
-					
-					btcomprobarpersonalizacion = new JButton("Comprobar");
-					btcomprobarpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
-					btcomprobarpersonalizacion.setBounds(127, 377, 131, 35);
-					ppersonalizacion.add(btcomprobarpersonalizacion);
-					
-					btsalirpersonalizacion = new JButton("Salir");
-					btsalirpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
-					btsalirpersonalizacion.setBounds(555, 377, 131, 35);
-					ppersonalizacion.add(btsalirpersonalizacion);
+				     ImageIcon fotocomun3 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+					 Image fotocomun3t = fotocomun3.getImage(); // transform it 
+					 Image fotocomun3tt = fotocomun3t.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH);
+					 fotocomun3 = new ImageIcon(fotocomun3tt);
+				     ftcomunidad3 = new JLabel(fotocomun3);
+				     ftcomunidad3.setBounds(10, 466, 135, 135);
+				     panelcomunidades.add(ftcomunidad3);
+				     
+				     nombrecomun1 = new JLabel("?");
+				     nombrecomun1.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombrecomun1.setBounds(155, 188, 97, 35);
+				     nombrecomun1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     panelcomunidades.add(nombrecomun1);
+				     
+				     nombrecomun2 = new JLabel("?");
+				     nombrecomun2.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombrecomun2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     nombrecomun2.setBounds(155, 346, 97, 35);
+				     panelcomunidades.add(nombrecomun2);
+				     
+				     nombrecomun3 = new JLabel("?");
+				     nombrecomun3.setHorizontalAlignment(SwingConstants.CENTER);
+				     nombrecomun3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     nombrecomun3.setBounds(155, 500, 97, 35);
+				     panelcomunidades.add(nombrecomun3);
+				     
+				     puntoscomun1 = new JLabel("PTS. ?");
+				     puntoscomun1.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntoscomun1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntoscomun1.setBounds(139, 229, 134, 35);
+				     panelcomunidades.add(puntoscomun1);
+				     
+				     puntoscomun2 = new JLabel("PTS. ?");
+				     puntoscomun2.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntoscomun2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntoscomun2.setBounds(139, 380, 134, 35);
+				     panelcomunidades.add(puntoscomun2);
+				     
+				     puntoscomun3 = new JLabel("PTS. ?");
+				     puntoscomun3.setHorizontalAlignment(SwingConstants.CENTER);
+				     puntoscomun3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				     puntoscomun3.setBounds(139, 544, 134, 35);
+				     panelcomunidades.add(puntoscomun3);
+				      
 		//Agregar Imagen a  Logo 
 
 		ImageIcon fotobf = new ImageIcon(Vista.class.getResource("/vista/img/logo_benidormfest.png")); 

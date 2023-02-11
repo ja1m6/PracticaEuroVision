@@ -38,10 +38,12 @@ public class Controlador implements ActionListener {
 		this.inicio.nuevoletra.addActionListener(this);
 		this.inicio.btsalircomunidades.addActionListener(this);
 		this.inicio.mostrarcomunidades.addActionListener(this);
+		this.inicio.mostraredades.addActionListener(this);
+		this.inicio.btsaliredades.addActionListener(this);
 		
 		// LLAMAMOS AL METODO CREAR VOTANTES DE LA CLASE CREACION HILOS
 		CreacionHilos crearHilos = new CreacionHilos();
-		crearHilos.generarVotantes();
+		//crearHilos.generarVotantes();
 		
 		
 	}
@@ -299,6 +301,8 @@ public class Controlador implements ActionListener {
 		// MODIFICAR COLOR
 		if (e.getSource() == inicio.crearcolor) {
 			inicio.ppersonalizacion.setVisible(true);
+			inicio.panelcomunidades.setVisible(false);
+			inicio.paneledades.setVisible(false);
 		}
 		if (e.getSource() == inicio.btsalirpersonalizacion) {
 			inicio.ppersonalizacion.setVisible(false);
@@ -341,6 +345,15 @@ public class Controlador implements ActionListener {
 		}
 		if (e.getSource() == inicio.mostrarcomunidades) {
 			inicio.panelcomunidades.setVisible(true);
+			inicio.paneledades.setVisible(false);
 		}
+		// Mostrar Panel EDADES
+				if (e.getSource() == inicio.btsaliredades) {
+					inicio.paneledades.setVisible(false);
+				}
+				if (e.getSource() == inicio.mostraredades) {
+					inicio.panelcomunidades.setVisible(false);
+					inicio.paneledades.setVisible(true);
+				}
 	}
 }
