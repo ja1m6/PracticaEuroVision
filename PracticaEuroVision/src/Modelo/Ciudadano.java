@@ -1,136 +1,141 @@
 package Modelo;
 
-public class Ciudadano extends Thread{
-	private int numerovoto;
-	private String comunidad,rangoedad,cantantevotado;
-	public Ciudadano(String comunidad, String rangoedad) {
-		super();
-		this.numerovoto=0;
+public class Ciudadano extends Thread {
+	private int numeroVoto;
+	private String comunidad, rangoEdad, cantanteVotado;
+
+	public Ciudadano(String comunidad, String rangoEdad) {
+		this.numeroVoto = 0;
 		this.comunidad = comunidad;
-		this.rangoedad = rangoedad;
-		this.cantantevotado="";
+		this.rangoEdad = rangoEdad;
+		this.cantanteVotado = "";
 	}
-	
+
 	public String getCantantevotado() {
-		return cantantevotado;
+		return cantanteVotado;
 	}
 
-	public void setCantantevotado(String cantantevotado) {
-		this.cantantevotado = cantantevotado;
+	public void setCantantevotado(String cantanteVotodo) {
+		this.cantanteVotado = cantanteVotodo;
 	}
 
-	public int getNumerovoto() {
-		return numerovoto;
+	public int getNumeroVoto() {
+		return numeroVoto;
 	}
-	public void setNumerovoto(int numerovoto) {
-		this.numerovoto = numerovoto;
+
+	public void setNumeroVoto(int numeroVoto) {
+		this.numeroVoto = numeroVoto;
 	}
+
 	public String getComunidad() {
 		return comunidad;
 	}
+
 	public void setComunidad(String comunidad) {
 		this.comunidad = comunidad;
 	}
-	public String getRangoedad() {
-		return rangoedad;
+
+	public String getRangoEdad() {
+		return rangoEdad;
 	}
-	public void setRangoedad(String rangoedad) {
-		this.rangoedad = rangoedad;
+
+	public void setRangoEdad(String rangoEdad) {
+		this.rangoEdad = rangoEdad;
 	}
-	
+
 	public void run() {
-		numerovoto=(int) (1+Math.random()*99);
-		switch(rangoedad) {
+		numeroVoto = (int) (1 + Math.random() * 99);
+		switch (rangoEdad) {
 		case "RANGO_18_25":
-			if(numerovoto>0&&numerovoto<=7) {
-				cantantevotado="Joel";
-			}else if(numerovoto>7&&numerovoto<=10) {
-				cantantevotado="Victoria";
-			}else if(numerovoto>10&&numerovoto<=23) {
-				cantantevotado="Thiago";
-			}else if(numerovoto>23&&numerovoto<=30) {
-				cantantevotado="Sarah";
-			}else if(numerovoto>30&&numerovoto<=37) {
-				cantantevotado="Elton";
-			}else if(numerovoto>37&&numerovoto<=51) {
-				cantantevotado="Amie";
-			}else if(numerovoto>51&&numerovoto<=61) {
-				cantantevotado="Nahid";
-			}else if(numerovoto>61&&numerovoto<=88) {
-				cantantevotado="Marc";
-			}else if(numerovoto>88&&numerovoto<=95) {
-				cantantevotado="Alba";
-			}else if(numerovoto>95&&numerovoto<=100) {
-				cantantevotado="Julio";
+			if (numeroVoto > 0 && numeroVoto <= 7) {
+				cantanteVotado = "Joel";
+			} else if (numeroVoto > 7 && numeroVoto <= 10) {
+				cantanteVotado = "Victoria";
+			} else if (numeroVoto > 10 && numeroVoto <= 23) {
+				cantanteVotado = "Thiago";
+			} else if (numeroVoto > 23 && numeroVoto <= 30) {
+				cantanteVotado = "Sarah";
+			} else if (numeroVoto > 30 && numeroVoto <= 37) {
+				cantanteVotado = "Elton";
+			} else if (numeroVoto > 37 && numeroVoto <= 51) {
+				cantanteVotado = "Amie";
+			} else if (numeroVoto > 51 && numeroVoto <= 61) {
+				cantanteVotado = "Nahid";
+			} else if (numeroVoto > 61 && numeroVoto <= 88) {
+				cantanteVotado = "Marc";
+			} else if (numeroVoto > 88 && numeroVoto <= 95) {
+				cantanteVotado = "Alba";
+			} else if (numeroVoto > 95 && numeroVoto <= 100) {
+				cantanteVotado = "Julio";
 			}
 			break;
 		case "RANGO_26_40":
-			if(numerovoto>0&&numerovoto<=14) {
-				cantantevotado="Joel";
-			}else if(numerovoto>14&&numerovoto<=20) {
-				cantantevotado="Victoria";
-			}else if(numerovoto>20&&numerovoto<=33) {
-				cantantevotado="Thiago";
-			}else if(numerovoto>33&&numerovoto<=40) {
-				cantantevotado="Sarah";
-			}else if(numerovoto>40&&numerovoto<=46) {
-				cantantevotado="Elton";
-			}else if(numerovoto>46&&numerovoto<=58) {
-				cantantevotado="Amie";
-			}else if(numerovoto>58&&numerovoto<=65) {
-				cantantevotado="Nahid";
-			}else if(numerovoto>65&&numerovoto<=81) {
-				cantantevotado="Marc";
-			}else if(numerovoto>81&&numerovoto<=90) {
-				cantantevotado="Alba";
-			}else if(numerovoto>90&&numerovoto<=100) {
-				cantantevotado="Julio";
+			if (numeroVoto > 0 && numeroVoto <= 14) {
+				cantanteVotado = "Joel";
+			} else if (numeroVoto > 14 && numeroVoto <= 20) {
+				cantanteVotado = "Victoria";
+			} else if (numeroVoto > 20 && numeroVoto <= 33) {
+				cantanteVotado = "Thiago";
+			} else if (numeroVoto > 33 && numeroVoto <= 40) {
+				cantanteVotado = "Sarah";
+			} else if (numeroVoto > 40 && numeroVoto <= 46) {
+				cantanteVotado = "Elton";
+			} else if (numeroVoto > 46 && numeroVoto <= 58) {
+				cantanteVotado = "Amie";
+			} else if (numeroVoto > 58 && numeroVoto <= 65) {
+				cantanteVotado = "Nahid";
+			} else if (numeroVoto > 65 && numeroVoto <= 81) {
+				cantanteVotado = "Marc";
+			} else if (numeroVoto > 81 && numeroVoto <= 90) {
+				cantanteVotado = "Alba";
+			} else if (numeroVoto > 90 && numeroVoto <= 100) {
+				cantanteVotado = "Julio";
 			}
 			break;
 		case "RANGO_41_65":
-			if(numerovoto>0&&numerovoto<=5) {
-				cantantevotado="Joel";
-			}else if(numerovoto>5&&numerovoto<=15) {
-				cantantevotado="Victoria";
-			}else if(numerovoto>15&&numerovoto<=27) {
-				cantantevotado="Thiago";
-			}else if(numerovoto>27&&numerovoto<=33) {
-				cantantevotado="Sarah";
-			}else if(numerovoto>33&&numerovoto<=40) {
-				cantantevotado="Elton";
-			}else if(numerovoto>40&&numerovoto<=54) {
-				cantantevotado="Amie";
-			}else if(numerovoto>54&&numerovoto<=61) {
-				cantantevotado="Nahid";
-			}else if(numerovoto>61&&numerovoto<=71) {
-				cantantevotado="Marc";
-			}else if(numerovoto>71&&numerovoto<=88) {
-				cantantevotado="Alba";
-			}else if(numerovoto>88&&numerovoto<=100) {
-				cantantevotado="Julio";
+			if (numeroVoto > 0 && numeroVoto <= 5) {
+				cantanteVotado = "Joel";
+			} else if (numeroVoto > 5 && numeroVoto <= 15) {
+				cantanteVotado = "Victoria";
+			} else if (numeroVoto > 15 && numeroVoto <= 27) {
+				cantanteVotado = "Thiago";
+			} else if (numeroVoto > 27 && numeroVoto <= 33) {
+				cantanteVotado = "Sarah";
+			} else if (numeroVoto > 33 && numeroVoto <= 40) {
+				cantanteVotado = "Elton";
+			} else if (numeroVoto > 40 && numeroVoto <= 54) {
+				cantanteVotado = "Amie";
+			} else if (numeroVoto > 54 && numeroVoto <= 61) {
+				cantanteVotado = "Nahid";
+			} else if (numeroVoto > 61 && numeroVoto <= 71) {
+				cantanteVotado = "Marc";
+			} else if (numeroVoto > 71 && numeroVoto <= 88) {
+				cantanteVotado = "Alba";
+			} else if (numeroVoto > 88 && numeroVoto <= 100) {
+				cantanteVotado = "Julio";
 			}
 			break;
 		case "RANGO_MAS_66":
-			if(numerovoto>0&&numerovoto<=3) {
-				cantantevotado="Joel";
-			}else if(numerovoto>3&&numerovoto<=20) {
-				cantantevotado="Victoria";
-			}else if(numerovoto>20&&numerovoto<=25) {
-				cantantevotado="Thiago";
-			}else if(numerovoto>25&&numerovoto<=37) {
-				cantantevotado="Sarah";
-			}else if(numerovoto>37&&numerovoto<=49) {
-				cantantevotado="Elton";
-			}else if(numerovoto>49&&numerovoto<=58) {
-				cantantevotado="Amie";
-			}else if(numerovoto>58&&numerovoto<=65) {
-				cantantevotado="Nahid";
-			}else if(numerovoto>65&&numerovoto<=76) {
-				cantantevotado="Marc";
-			}else if(numerovoto>76&&numerovoto<=91) {
-				cantantevotado="Alba";
-			}else if(numerovoto>91&&numerovoto<=100) {
-				cantantevotado="Julio";
+			if (numeroVoto > 0 && numeroVoto <= 3) {
+				cantanteVotado = "Joel";
+			} else if (numeroVoto > 3 && numeroVoto <= 20) {
+				cantanteVotado = "Victoria";
+			} else if (numeroVoto > 20 && numeroVoto <= 25) {
+				cantanteVotado = "Thiago";
+			} else if (numeroVoto > 25 && numeroVoto <= 37) {
+				cantanteVotado = "Sarah";
+			} else if (numeroVoto > 37 && numeroVoto <= 49) {
+				cantanteVotado = "Elton";
+			} else if (numeroVoto > 49 && numeroVoto <= 58) {
+				cantanteVotado = "Amie";
+			} else if (numeroVoto > 58 && numeroVoto <= 65) {
+				cantanteVotado = "Nahid";
+			} else if (numeroVoto > 65 && numeroVoto <= 76) {
+				cantanteVotado = "Marc";
+			} else if (numeroVoto > 76 && numeroVoto <= 91) {
+				cantanteVotado = "Alba";
+			} else if (numeroVoto > 91 && numeroVoto <= 100) {
+				cantanteVotado = "Julio";
 			}
 			break;
 		}

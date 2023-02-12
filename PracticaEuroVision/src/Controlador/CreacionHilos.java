@@ -19,58 +19,59 @@ import persistencias.ResultadosEdad;
 import persistencias.ResultadosGenerales;
 
 public class CreacionHilos {
-	
+
 	public static void main(String[] args) {
-		List<Resultado>resultadoscom=new ArrayList();
-		resultadoscom=obtenerpuntosedad("RANGO_26_40");
-		Artista r=null;
-		for(int i=0;i<3;i++) {
-		System.out.println(resultadoscom.get(i).getArtista());
-		System.out.println(resultadoscom.get(i).getVotos());
+		List<Resultado> resultadosCom = new ArrayList<Resultado>();
+		resultadosCom = obtenerVotosEdad("RANGO_26_40");
+		Artista r = null;
+
+		for (int i = 0; i < 3; i++) {
+			System.out.println(resultadosCom.get(i).getArtista());
+			System.out.println(resultadosCom.get(i).getVotos());
 		}
 	}
-	
+
 	public void generarVotantes() {
 		/*
 		 * CONFIGURAMOS LA CONEXION CON HIBERNATE PARA REALIZAR LAS CONSULTAS E
 		 * INSERCIONES NECESARIAS
 		 */
-		SessionFactory sf = null;
+		SessionFactory sessionFactory = null;
 		Configuration cfg = new Configuration();
 		cfg.configure("hibernate.cfg.xml");
-		sf = cfg.buildSessionFactory();
+		sessionFactory = cfg.buildSessionFactory();
 
 		/*
 		 * ARRAYLIST PARA GUARDAR LOS VOTANTES TANTO GENERALES COMO DE CADA COMUNIDAD
 		 * AUTONOMA
 		 */
 		ArrayList<Ciudadano> votantes = new ArrayList<Ciudadano>();
-		ArrayList<Integer> votosAndalucia = consultaVotantes(sf, "Andalucia");
-		ArrayList<Integer> votosAragon = consultaVotantes(sf, "Aragon");
-		ArrayList<Integer> votosAsturias = consultaVotantes(sf, "Asturias");
-		ArrayList<Integer> votosBaleares = consultaVotantes(sf, "Baleares");
-		ArrayList<Integer> votosCanarias = consultaVotantes(sf, "Canarias");
-		ArrayList<Integer> votosCantabria = consultaVotantes(sf, "Cantabria");
-		ArrayList<Integer> votosCLM = consultaVotantes(sf, "Castilla La Mancha");
-		ArrayList<Integer> votosCYL = consultaVotantes(sf, "Castilla y Leon");
-		ArrayList<Integer> votosCatalunia = consultaVotantes(sf, "Catalunia");
-		ArrayList<Integer> votosCeuta = consultaVotantes(sf, "Ceuta");
-		ArrayList<Integer> votosValencia = consultaVotantes(sf, "Comunidad Valenciana");
-		ArrayList<Integer> votosExtremadura = consultaVotantes(sf, "Extremadura");
-		ArrayList<Integer> votosGalicia = consultaVotantes(sf, "Galicia");
-		ArrayList<Integer> votosLaRioja = consultaVotantes(sf, "La Rioja");
-		ArrayList<Integer> votosMadrid = consultaVotantes(sf, "Madrid");
-		ArrayList<Integer> votosMelilla = consultaVotantes(sf, "Melilla");
-		ArrayList<Integer> votosMurcia = consultaVotantes(sf, "Murcia");
-		ArrayList<Integer> votosNavarra = consultaVotantes(sf, "Navarra");
-		ArrayList<Integer> votosPaisVasco = consultaVotantes(sf, "Pais Vasco");
+		ArrayList<Integer> votosAndalucia = consultaVotantes(sessionFactory, "Andalucia");
+		ArrayList<Integer> votosAragon = consultaVotantes(sessionFactory, "Aragon");
+		ArrayList<Integer> votosAsturias = consultaVotantes(sessionFactory, "Asturias");
+		ArrayList<Integer> votosBaleares = consultaVotantes(sessionFactory, "Baleares");
+		ArrayList<Integer> votosCanarias = consultaVotantes(sessionFactory, "Canarias");
+		ArrayList<Integer> votosCantabria = consultaVotantes(sessionFactory, "Cantabria");
+		ArrayList<Integer> votosCLM = consultaVotantes(sessionFactory, "Castilla La Mancha");
+		ArrayList<Integer> votosCYL = consultaVotantes(sessionFactory, "Castilla y Leon");
+		ArrayList<Integer> votosCatalunia = consultaVotantes(sessionFactory, "Catalunia");
+		ArrayList<Integer> votosCeuta = consultaVotantes(sessionFactory, "Ceuta");
+		ArrayList<Integer> votosValencia = consultaVotantes(sessionFactory, "Comunidad Valenciana");
+		ArrayList<Integer> votosExtremadura = consultaVotantes(sessionFactory, "Extremadura");
+		ArrayList<Integer> votosGalicia = consultaVotantes(sessionFactory, "Galicia");
+		ArrayList<Integer> votosLaRioja = consultaVotantes(sessionFactory, "La Rioja");
+		ArrayList<Integer> votosMadrid = consultaVotantes(sessionFactory, "Madrid");
+		ArrayList<Integer> votosMelilla = consultaVotantes(sessionFactory, "Melilla");
+		ArrayList<Integer> votosMurcia = consultaVotantes(sessionFactory, "Murcia");
+		ArrayList<Integer> votosNavarra = consultaVotantes(sessionFactory, "Navarra");
+		ArrayList<Integer> votosPaisVasco = consultaVotantes(sessionFactory, "Pais Vasco");
 		Ciudadano ciudadano = null;
 
 		/*
 		 * GENERACION DE HILOS DE CADA COMUNIDAD AUTONOMA Y POR CADA RANGO DE EDAD
 		 */
 
-		/* -------------------- ANDALUCIA --------------------- */
+		/* ----------------------------- ANDALUCIA ------------------------------- */
 		// GENERAR CIUDADANOS DE 18-25 ANIOS ANDALUCIA
 		for (int i = 0; i < votosAndalucia.get(1); i++) {
 			ciudadano = new Ciudadano("Andalucia", "RANGO_18_25");
@@ -84,169 +85,189 @@ public class CreacionHilos {
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Andalucia
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS ANDALUCIA
 		for (int i = 0; i < votosAndalucia.get(3); i++) {
 			ciudadano = new Ciudadano("Andalucia", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Andalucia
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS ANDALUCIA
 		for (int i = 0; i < votosAndalucia.get(4); i++) {
 			ciudadano = new Ciudadano("Andalucia", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- ARAGON --------------------- */
-		// Generar Ciudadanos de 18-25 años Aragon
+		/* ---------------------------- ARAGON ------------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS ARAGON
 		for (int i = 0; i < votosAragon.get(1); i++) {
 			ciudadano = new Ciudadano("Aragon", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Aragon
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS ARAGON
 		for (int i = 0; i < votosAragon.get(2); i++) {
 			ciudadano = new Ciudadano("Aragon", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Aragon
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS ARAGON
 		for (int i = 0; i < votosAragon.get(3); i++) {
 			ciudadano = new Ciudadano("Aragon", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Aragon
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS ARAGON
 		for (int i = 0; i < votosAragon.get(4); i++) {
 			ciudadano = new Ciudadano("Aragon", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- ASTURIAS --------------------- */
-		// Generar Ciudadanos de 18-25 años Asturias
+		/* ---------------------------- ASTURIAS ------------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS ASTURIAS
 		for (int i = 0; i < votosAsturias.get(1); i++) {
 			ciudadano = new Ciudadano("Asturias", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Asturias
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS ASTURIAS
 		for (int i = 0; i < votosAsturias.get(2); i++) {
 			ciudadano = new Ciudadano("Asturias", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Asturias
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS ASTURIAS
 		for (int i = 0; i < votosAsturias.get(3); i++) {
 			ciudadano = new Ciudadano("Asturias", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Asturias
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS ASTURIAS
 		for (int i = 0; i < votosAsturias.get(4); i++) {
 			ciudadano = new Ciudadano("Asturias", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- BALEARES --------------------- */
-		// Generar Ciudadanos de 18-25 años Baleares
+		/* --------------------------- BALEARES ---------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS BALEARES
 		for (int i = 0; i < votosBaleares.get(1); i++) {
 			ciudadano = new Ciudadano("Baleares", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Baleares
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS BALEARES
 		for (int i = 0; i < votosBaleares.get(2); i++) {
 			ciudadano = new Ciudadano("Baleares", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Baleares
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS BALEARES
 		for (int i = 0; i < votosBaleares.get(3); i++) {
 			ciudadano = new Ciudadano("Baleares", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Baleares
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS BALEARES
 		for (int i = 0; i < votosBaleares.get(4); i++) {
 			ciudadano = new Ciudadano("Baleares", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- ISLAS CANARIAS --------------------- */
-		// Generar Ciudadanos de 18-25 años Canarias
+		/* ------------------------ ISLAS CANARIAS -------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CANARIAS
 		for (int i = 0; i < votosCanarias.get(1); i++) {
 			ciudadano = new Ciudadano("Canarias", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Canarias
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CANARIAS
 		for (int i = 0; i < votosCanarias.get(2); i++) {
 			ciudadano = new Ciudadano("Canarias", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Canarias
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CANARIAS
 		for (int i = 0; i < votosCanarias.get(3); i++) {
 			ciudadano = new Ciudadano("Canarias", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Canarias
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CANARIAS
 		for (int i = 0; i < votosCanarias.get(4); i++) {
 			ciudadano = new Ciudadano("Canarias", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- CANTABRIA --------------------- */
-		// Generar Ciudadanos de 18-25 años Cantabria
+		/* -------------------------- CANTABRIA ------------------------------ */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CANTABRIA
 		for (int i = 0; i < votosCantabria.get(1); i++) {
 			ciudadano = new Ciudadano("Cantabria", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Cantabria
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CANTABRIA
 		for (int i = 0; i < votosCantabria.get(2); i++) {
 			ciudadano = new Ciudadano("Cantabria", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Cantabria
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CANTABRIA
 		for (int i = 0; i < votosCantabria.get(3); i++) {
 			ciudadano = new Ciudadano("Cantabria", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Cantabria
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CANTABRIA
 		for (int i = 0; i < votosCantabria.get(4); i++) {
 			ciudadano = new Ciudadano("Cantabria", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- CASTILLA LA MANCHA --------------------- */
-		// Generar Ciudadanos de 18-25 años Castilla La Mancha
+		/* ------------------------ CASTILLA LA MANCHA ----------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CASTILLA LA MANCHA
 		for (int i = 0; i < votosCLM.get(1); i++) {
 			ciudadano = new Ciudadano("Castilla La Mancha", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Castilla La Mancha
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CASTILLA LA MANCHA
 		for (int i = 0; i < votosCLM.get(2); i++) {
 			ciudadano = new Ciudadano("Castilla La Mancha", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Castilla La Mancha
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CASTILLA LA MANCHA
 		for (int i = 0; i < votosCLM.get(3); i++) {
 			ciudadano = new Ciudadano("Castilla La Mancha", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Castilla La Mancha
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CASTILLA LA MANCHA
 		for (int i = 0; i < votosCLM.get(4); i++) {
 			ciudadano = new Ciudadano("Castilla La Mancha", "RANGO_MAS_66");
 			ciudadano.start();
@@ -254,293 +275,326 @@ public class CreacionHilos {
 		}
 
 		/* -------------------- CASTILLA Y LEON --------------------- */
-		// Generar Ciudadanos de 18-25 años Castilla y Leon
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CASTILLA Y LEON
 		for (int i = 0; i < votosCYL.get(1); i++) {
 			ciudadano = new Ciudadano("Castilla y Leon", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Castilla y Leon
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CASTILLA Y LEON
 		for (int i = 0; i < votosCYL.get(2); i++) {
 			ciudadano = new Ciudadano("Castilla y Leon", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Castilla y Leon
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CASTILLA Y LEON
 		for (int i = 0; i < votosCYL.get(3); i++) {
 			ciudadano = new Ciudadano("Castilla y Leon", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Castilla y Leon
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CASTILLA Y LEON
 		for (int i = 0; i < votosCYL.get(4); i++) {
 			ciudadano = new Ciudadano("Castilla y Leon", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- CATALUNIA --------------------- */
-		// Generar Ciudadanos de 18-25 años Catalunia
+		/* ----------------------- CATALUNIA ------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CATALUNIA
 		for (int i = 0; i < votosCatalunia.get(1); i++) {
 			ciudadano = new Ciudadano("Catalunia", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Catalunia
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CATALUNIA
 		for (int i = 0; i < votosCatalunia.get(2); i++) {
 			ciudadano = new Ciudadano("Catalunia", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Catalunia
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CATALUNIA
 		for (int i = 0; i < votosCatalunia.get(3); i++) {
 			ciudadano = new Ciudadano("Catalunia", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Catalunia
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CATALUNIA
 		for (int i = 0; i < votosCatalunia.get(4); i++) {
 			ciudadano = new Ciudadano("Catalunia", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- CEUTA --------------------- */
-		// Generar Ciudadanos de 18-25 años Ceuta
+		/* ----------------------- CEUTA ------------------------ */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS CEUTA
 		for (int i = 0; i < votosCeuta.get(1); i++) {
 			ciudadano = new Ciudadano("Ceuta", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Ceuta
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS CEUTA
 		for (int i = 0; i < votosCeuta.get(2); i++) {
 			ciudadano = new Ciudadano("Ceuta", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Ceuta
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS CEUTA
 		for (int i = 0; i < votosCeuta.get(3); i++) {
 			ciudadano = new Ciudadano("Ceuta", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Ceuta
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS CEUTA
 		for (int i = 0; i < votosCeuta.get(4); i++) {
 			ciudadano = new Ciudadano("Ceuta", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- COMUNIDAD VALENCIANA --------------------- */
-		// Generar Ciudadanos de 18-25 años Comunidad Valenciana
+		/* ---------------------- COMUNIDAD VALENCIANA --------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS COMUNIDAD VALENCIANA
 		for (int i = 0; i < votosValencia.get(1); i++) {
 			ciudadano = new Ciudadano("Comunidad Valenciana", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Comunidad Valenciana
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS COMUNIDAD VALENCIANA
 		for (int i = 0; i < votosValencia.get(2); i++) {
 			ciudadano = new Ciudadano("Comunidad Valenciana", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Comunidad Valenciana
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS COMUNIDAD VALENCIANA
 		for (int i = 0; i < votosValencia.get(3); i++) {
 			ciudadano = new Ciudadano("Comunidad Valenciana", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Comunidad Valenciana
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS COMUNIDAD VALENCIANA
 		for (int i = 0; i < votosValencia.get(4); i++) {
 			ciudadano = new Ciudadano("Comunidad Valenciana", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- EXTREMADURA --------------------- */
-		// Generar Ciudadanos de 18-25 años Extremadura
+		/* ------------------------ EXTREMADURA ------------------------ */
+		// GENERAR CIUDADANOS DE 18-26 ANIOS EXTREMADURA
 		for (int i = 0; i < votosExtremadura.get(1); i++) {
 			ciudadano = new Ciudadano("Extremadura", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Extremadura
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS EXTREMADURA
 		for (int i = 0; i < votosExtremadura.get(2); i++) {
 			ciudadano = new Ciudadano("Extremadura", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Extremadura
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS EXTREMADURA
 		for (int i = 0; i < votosExtremadura.get(3); i++) {
 			ciudadano = new Ciudadano("Extremadura", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Extremadura
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS EXTREMADURA
 		for (int i = 0; i < votosExtremadura.get(4); i++) {
 			ciudadano = new Ciudadano("Extremadura", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- GALICIA --------------------- */
-		// Generar Ciudadanos de 18-25 años Galicia
+		/* ------------------------ GALICIA ------------------------ */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS GALICIA
 		for (int i = 0; i < votosGalicia.get(1); i++) {
 			ciudadano = new Ciudadano("Galicia", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Galicia
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS GALICIA
 		for (int i = 0; i < votosGalicia.get(2); i++) {
 			ciudadano = new Ciudadano("Galicia", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Galicia
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS GALICIA
 		for (int i = 0; i < votosGalicia.get(3); i++) {
 			ciudadano = new Ciudadano("Galicia", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Galicia
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS GALICIA
 		for (int i = 0; i < votosGalicia.get(4); i++) {
 			ciudadano = new Ciudadano("Galicia", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- LA RIOJA --------------------- */
-		// Generar Ciudadanos de 18-25 años La Rioja
+		/* ------------------------ LA RIOJA ------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS LA RIOJA
 		for (int i = 0; i < votosLaRioja.get(1); i++) {
 			ciudadano = new Ciudadano("La Rioja", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años La Rioja
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS LA RIOJA
 		for (int i = 0; i < votosLaRioja.get(2); i++) {
 			ciudadano = new Ciudadano("La Rioja", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años La Rioja
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS LA RIOJA
 		for (int i = 0; i < votosLaRioja.get(3); i++) {
 			ciudadano = new Ciudadano("La Rioja", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años La Rioja
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS LA RIOJA
 		for (int i = 0; i < votosLaRioja.get(4); i++) {
 			ciudadano = new Ciudadano("La Rioja", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- MADRID --------------------- */
-		// Generar Ciudadanos de 18-25 años Madrid
+		/* ------------------------ MADRID ------------------------ */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS MADRID
 		for (int i = 0; i < votosMadrid.get(1); i++) {
 			ciudadano = new Ciudadano("Madrid", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Madrid
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS MADRID
 		for (int i = 0; i < votosMadrid.get(2); i++) {
 			ciudadano = new Ciudadano("Madrid", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Madrid
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS MADRID
 		for (int i = 0; i < votosMadrid.get(3); i++) {
 			ciudadano = new Ciudadano("Madrid", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Madrid
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS MADRID
 		for (int i = 0; i < votosMadrid.get(4); i++) {
 			ciudadano = new Ciudadano("Madrid", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- MELILLA --------------------- */
-		// Generar Ciudadanos de 18-25 años Melilla
+		/* ------------------------ MELILLA ------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS MELILLA
 		for (int i = 0; i < votosMelilla.get(1); i++) {
 			ciudadano = new Ciudadano("Melilla", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Melilla
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS MELILLA
 		for (int i = 0; i < votosMelilla.get(2); i++) {
 			ciudadano = new Ciudadano("Melilla", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Melilla
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS MELILLA
 		for (int i = 0; i < votosMelilla.get(3); i++) {
 			ciudadano = new Ciudadano("Melilla", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Melilla
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS MELILLA
 		for (int i = 0; i < votosMelilla.get(4); i++) {
 			ciudadano = new Ciudadano("Melilla", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- MURCIA --------------------- */
-		// Generar Ciudadanos de 18-25 años Murcia
+		/* ----------------------- MURCIA ------------------------ */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS MURCIA
 		for (int i = 0; i < votosMurcia.get(1); i++) {
 			ciudadano = new Ciudadano("Murcia", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Murcia
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS MURCIA
 		for (int i = 0; i < votosMurcia.get(2); i++) {
 			ciudadano = new Ciudadano("Murcia", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Murcia
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS MURCIA
 		for (int i = 0; i < votosMurcia.get(3); i++) {
 			ciudadano = new Ciudadano("Murcia", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Murcia
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS MURCIA
 		for (int i = 0; i < votosMurcia.get(4); i++) {
 			ciudadano = new Ciudadano("Murcia", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- NAVARRA --------------------- */
-		// Generar Ciudadanos de 18-25 años Navarra
+		/* ------------------------- NAVARRA -------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS NAVARRA
 		for (int i = 0; i < votosNavarra.get(1); i++) {
 			ciudadano = new Ciudadano("Navarra", "RANGO_18_25");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 26-40 años Navarra
+
+		// GENERAR CIUDADANOS DE 26-40 ANIOS NAVARRA
 		for (int i = 0; i < votosNavarra.get(2); i++) {
 			ciudadano = new Ciudadano("Navarra", "RANGO_26_40");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 41-65 años Navarra
+
+		// GENERAR CIUDADANOS DE 41-65 ANIOS NAVARRA
 		for (int i = 0; i < votosNavarra.get(3); i++) {
 			ciudadano = new Ciudadano("Navarra", "RANGO_41_65");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
-		// Generar Ciudadanos de 66 y mas años Navarra
+
+		// GENERAR CIUDADANOS DE 66 Y MAS ANIOS NAVARRA
 		for (int i = 0; i < votosNavarra.get(4); i++) {
 			ciudadano = new Ciudadano("Navarra", "RANGO_MAS_66");
 			ciudadano.start();
 			votantes.add(ciudadano);
 		}
 
-		/* -------------------- PAIS VASCO --------------------- */
-		// Generar Ciudadanos de 18-25 años Pais Vasco
+		/* ------------------------- PAIS VASCO -------------------------- */
+		// GENERAR CIUDADANOS DE 18-25 ANIOS PAIS VASCO
 		for (int i = 0; i < votosPaisVasco.get(1); i++) {
 			ciudadano = new Ciudadano("Pais Vasco", "RANGO_18_25");
 			ciudadano.start();
@@ -568,82 +622,123 @@ public class CreacionHilos {
 			votantes.add(ciudadano);
 		}
 
+		// REINICIAMOS LOS DATOS BORRANDO LOS ANTERIORES
+		eliminarRegistros(sessionFactory);
+
 		// PERSISTIMOS LOS DATOS EN LA BASE DE DATOS PARA PODER RECUPERARLOS DESPUÉS
-		eliminaresgistros(sf);
-		insertarVotosGenerales(sf, votantes);
-		insertarVotosEdad(sf, votantes);
-		insertarVotosComunidad(sf, votantes);
-	}
-	
-	public static List<Resultado> obtenerpuntoscomunidad(String nombrecomunidad){
-		SessionFactory sf = null;
-		Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		sf = cfg.buildSessionFactory();
-		Session s=sf.getCurrentSession();
-		List<Resultado>resultadoscom=new ArrayList();
-		try {
-			s.beginTransaction();
-			Query q=s.createSQLQuery("select  rs.numero_votos_comunidad,a.nombre from resultados_comunidad as rs inner join artista as a on a.dni=rs.dni_artista where nombre_comunidad=:name  order by numero_votos_comunidad desc")
-			.setParameter("name",nombrecomunidad);
-			List<Object[]> resultado =q.getResultList();
-			for(Object[] fila:resultado) {
-				int votos=(int) fila[0];
-				String artista=(String) fila[1];
-				resultadoscom.add(new Resultado(artista,votos));
-			}
-		} catch (Exception e) {
-			s.getTransaction().rollback();
-			e.printStackTrace();
-		}finally {
-			s.close();
-		}
-		return resultadoscom;
-	}
-	
-	public static List<Resultado> obtenerpuntosedad(String rangoedad){
-		SessionFactory sf = null;
-		Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		sf = cfg.buildSessionFactory();
-		Session s=sf.getCurrentSession();
-		List<Resultado>resultadoscom=new ArrayList();
-		try {
-			s.beginTransaction();
-			Query q=s.createSQLQuery("select re.numero_votos_edad,a.nombre from resultados_edad as re inner join artista as a on re.dni_artista=a.dni where rango=:name order by numero_votos_edad desc")
-			.setParameter("name",rangoedad);
-			List<Object[]> resultado =q.getResultList();
-			for(Object[] fila:resultado) {
-				int votos=(int) fila[0];
-				String artista=(String) fila[1];
-				resultadoscom.add(new Resultado(artista,votos));
-			}
-		} catch (Exception e) {
-			s.getTransaction().rollback();
-			e.printStackTrace();
-		}finally {
-			s.close();
-		}
-		return resultadoscom;
+		insertarVotosGenerales(sessionFactory, votantes);
+		insertarVotosEdad(sessionFactory, votantes);
+		insertarVotosComunidad(sessionFactory, votantes);
 	}
 
-	private void eliminaresgistros(SessionFactory sf) {
-		Session s =sf.getCurrentSession();
+	/*
+	 * OBTENER PUNTOS COMUNIDAD: METODO PARA OBTENER LOS VOTOS DE CADA ARTISTA
+	 * FILTRANDO POR LAS DISTINTAS COMUNIDADES
+	 */
+	public static List<Resultado> obtenerVotosComunidad(SessionFactory sessionFac, String nombreComunidad) {
+		// REALIZAMOS LA CONEXIÓN
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		sessionFac = cfg.buildSessionFactory();
+		Session session = sessionFac.getCurrentSession();
+		List<Resultado> resultadosComunidad = new ArrayList<Resultado>();
+
+		try {
+			session.beginTransaction();
+			Query q = session.createSQLQuery(
+					"SELECT rs.numero_votos_comunidad,a.nombre FROM resultados_comunidad AS rs INNER JOIN artista AS a on a.dni=rs.dni_artista WHERE nombre_comunidad=:name ORDER BY numero_votos_comunidad DESC");
+			q.setParameter("name", nombreComunidad);
+			List<Object[]> resultado = q.getResultList();
+
+			// RECORREMOS EL RESULTADO DE LA CONSULTA
+			for (Object[] fila : resultado) {
+				int votos = (int) fila[0];
+				String artista = (String) fila[1];
+				resultadosComunidad.add(new Resultado(artista, votos));
+			}
+		} catch (Exception e) {
+			if (null != session) {
+				session.getTransaction().rollback();
+			}
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (null != session) {
+				session.close();
+			}
+		}
+		return resultadosComunidad;
+	}
+
+	/*
+	 * OBTENER PUNTOS EDAD: METODO PARA OBTENER LOS VOTOS DE CADA ARTISTA FILTRANDO
+	 * POR LOS RANGOS DE EDAD
+	 */
+	public static List<Resultado> obtenerVotosEdad(String rangoEdad) {
+		SessionFactory sf = null;
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		sf = cfg.buildSessionFactory();
+		Session s = sf.getCurrentSession();
+		List<Resultado> resultadosEdad = new ArrayList<Resultado>();
+
 		try {
 			s.beginTransaction();
-			//Query q=s.createSQLQuery("delete from resultados_generales");
-			Query q2=s.createQuery("delete ResultadosEdad");
+			Query q = s.createSQLQuery(
+					"SELECT re.numero_votos_edad, a.nombre FROM resultados_edad AS re INNER JOIN artista AS a on re.dni_artista=a.dni WHERE rango=:name ORDER BY numero_votos_edad DESC");
+			q.setParameter("name", rangoEdad);
+			List<Object[]> resultado = q.getResultList();
+			
+			// RECORREMOS LOS RESULTADOS DE LA CONSULTA
+			for (Object[] fila : resultado) {
+				int votos = (int) fila[0];
+				String artista = (String) fila[1];
+				resultadosEdad.add(new Resultado(artista, votos));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (null != s) {
+				s.getTransaction().rollback();
+			}
+			throw e;
+		} finally {
+			if (null != s) {
+				s.close();
+			}
+		}
+		return resultadosEdad;
+	}
+
+	/*
+	 * ELIMINAR REGISTROS: METODO PARA ELIMINAR LOS REGISTROS ANTERIORES DE LA BBDD
+	 * DE LAS TABLAS DE RESULTADOS
+	 */
+	public void eliminarRegistros(SessionFactory sessionFac) {
+		Session session = sessionFac.getCurrentSession();
+
+		try {
+			session.beginTransaction();
+			// Query q = s.createSQLQuery("delete from resultados_generales");
+			Query q2 = session.createQuery("DELETE ResultadosEdad");
 			q2.executeUpdate();
-			//Query q3=s.createSQLQuery("delete from resultados_comunidad");
+			// Query q3 = s.createSQLQuery("delete from resultados_comunidad");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			s.close();
+			if (null != session) {
+				session.getTransaction().rollback();
+			}
+			throw e;
+		} finally {
+			if (null != session) {
+				session.close();
+			}
 		}
-		
+
 	}
 
+	/*
+	 * CONSULTA VOTANTES: ESTE METODO
+	 */
 	public ArrayList<Integer> consultaVotantes(SessionFactory sessionFac, String nombreComunidad) {
 		Session session = null;
 		PorcentajesRangoEdad data = new PorcentajesRangoEdad();
@@ -718,9 +813,9 @@ public class CreacionHilos {
 	}
 
 	/*
-	 * METODO PARA GUARDAR LAS VOTACIONES TOTALES EN LA BASE DE DATOS
+	 * INSERTAR VOTOS GENERALES: METODO PARA GUARDAR LAS VOTACIONES TOTALES EN LA
+	 * BASE DE DATOS
 	 */
-
 	public void insertarVotosGenerales(SessionFactory sessionFac, ArrayList<Ciudadano> votantes) {
 		Session session = null;
 
@@ -728,10 +823,9 @@ public class CreacionHilos {
 			session = sessionFac.getCurrentSession();
 			session.beginTransaction();
 
-			// TENEMOS QUE OBTENER DEL ARRAYLIST VOTANTES, CADA UNO DE LOS ARTISTAS Y SUS
-			// VOTOS
 			int contadores[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
+			// OBTENEMOS DEL ARRAYLIST VOTANTES CADA UNO DE LOS ARTISTAS Y SUS VOTOS
 			for (int i = 0; i < votantes.size(); i++) {
 				if (votantes.get(i).getCantantevotado().equals("Joel")) {
 					contadores[0]++;
@@ -762,6 +856,8 @@ public class CreacionHilos {
 
 			// INSERTAMOS EN LA TABLA DE RESULTADOS GENERALES LOS VOTOS OBTENIDOS
 			ResultadosGenerales resultados;
+
+			// RECORREMOS EL ARRAYLIST ARTISTAS PARA RECUPERAR EL ARTISTA ADECUADO
 			for (int i = 0; i < artistas.size(); i++) {
 				resultados = new ResultadosGenerales();
 				resultados.setDniArtista(artistas.get(i).getDni());
@@ -773,7 +869,9 @@ public class CreacionHilos {
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
-			session.getTransaction().rollback();
+			if (null != session) {
+				session.getTransaction().rollback();
+			}
 			throw e;
 		} finally {
 			if (null != session) {
@@ -783,7 +881,8 @@ public class CreacionHilos {
 	}
 
 	/*
-	 * METODO PARA GUARDAR LAS VOTACIONES POR EDADES EN LA BASE DE DATOS
+	 * INSERTAR VOTOS EDAD: METODO PARA GUARDAR LAS VOTACIONES POR EDADES EN LA BASE
+	 * DE DATOS
 	 */
 	public void insertarVotosEdad(SessionFactory sessionFac, ArrayList<Ciudadano> votantes) {
 		Session session = null;
@@ -804,18 +903,18 @@ public class CreacionHilos {
 			// RECORREMOS EL ARRAYLIST VOTANTES PARA RECUPERAR LOS VOTANTES DE LAS DISTINTAS
 			// EDADES
 			for (int i = 0; i < votantes.size(); i++) {
-				if (votantes.get(i).getRangoedad().equals("RANGO_18_25")) {
+				if (votantes.get(i).getRangoEdad().equals("RANGO_18_25")) {
 					edad_18_25.add(votantes.get(i));
-				} else if (votantes.get(i).getRangoedad().equals("RANGO_26_40")) {
+				} else if (votantes.get(i).getRangoEdad().equals("RANGO_26_40")) {
 					edad_26_40.add(votantes.get(i));
-				} else if (votantes.get(i).getRangoedad().equals("RANGO_41_65")) {
+				} else if (votantes.get(i).getRangoEdad().equals("RANGO_41_65")) {
 					edad_41_65.add(votantes.get(i));
-				} else if (votantes.get(i).getRangoedad().equals("RANGO_MAS_66")) {
+				} else if (votantes.get(i).getRangoEdad().equals("RANGO_MAS_66")) {
 					edad_66_mas.add(votantes.get(i));
 				}
 			}
 
-			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DEL RANGO DE EDAD 18_25
+			// RECUPERAMOS LOS DISTINTOS VOTOS DEL RANGO DE EDAD 18_25
 			for (int i = 0; i < edad_18_25.size(); i++) {
 				if (edad_18_25.get(i).getCantantevotado().equals("Joel")) {
 					contador18Anios[0]++;
@@ -840,7 +939,7 @@ public class CreacionHilos {
 				}
 			}
 
-			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DEL RANGO DE EDAD 26-40
+			// RECUPERAMOS LOS DISTINTOS VOTOS DEL RANGO DE EDAD 26-40
 			for (int i = 0; i < edad_26_40.size(); i++) {
 				if (edad_26_40.get(i).getCantantevotado().equals("Joel")) {
 					contador26Anios[0]++;
@@ -865,7 +964,7 @@ public class CreacionHilos {
 				}
 			}
 
-			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DEL RANGO DE EDAD 41-65
+			// RECUPERAMOS LOS DISTINTOS VOTOS DEL RANGO DE EDAD 41-65
 			for (int i = 0; i < edad_41_65.size(); i++) {
 				if (edad_41_65.get(i).getCantantevotado().equals("Joel")) {
 					contador41Anios[0]++;
@@ -890,7 +989,7 @@ public class CreacionHilos {
 				}
 			}
 
-			// TENEMOS QUE RECUPERAR LOS DISTINTOS VOTOS DEL RANGO DE EDAD 66+
+			// RECUPERAMOS LOS DISTINTOS VOTOS DEL RANGO DE EDAD 66+
 			for (int i = 0; i < edad_66_mas.size(); i++) {
 				if (edad_66_mas.get(i).getCantantevotado().equals("Joel")) {
 					contador66Anios[0]++;
@@ -924,26 +1023,29 @@ public class CreacionHilos {
 			ResultadosEdad resultados26Anios;
 			ResultadosEdad resultados41Anios;
 			ResultadosEdad resultados66Anios;
-			
-			
-			for(int i=0;i<artistas.size();i++) {
-				//AÑADIMOS LOS VOTOS DE 18 AÑOS
-				resultados18Anios=new ResultadosEdad();
+
+			// RECORREMOS EL ARRAYLIST ARTISTAS PARA RECUPERAR EL ARTISTA ADECUADO
+			for (int i = 0; i < artistas.size(); i++) {
+				// AÑADIMOS LOS VOTOS DE 18 AÑOS
+				resultados18Anios = new ResultadosEdad();
 				resultados18Anios.setArtista(artistas.get(i));
 				resultados18Anios.setRango("RANGO_18_25");
 				resultados18Anios.setNumeroVotosEdad(contador18Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 26 AÑOS
-				resultados26Anios=new ResultadosEdad();
+
+				// AÑADIMOS LOS VOTOS DE 26 AÑOS
+				resultados26Anios = new ResultadosEdad();
 				resultados26Anios.setArtista(artistas.get(i));
 				resultados26Anios.setRango("RANGO_26_40");
 				resultados26Anios.setNumeroVotosEdad(contador26Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 41 AÑOS
-				resultados41Anios=new ResultadosEdad();
+
+				// AÑADIMOS LOS VOTOS DE 41 AÑOS
+				resultados41Anios = new ResultadosEdad();
 				resultados41Anios.setArtista(artistas.get(i));
 				resultados41Anios.setRango("RANGO_41_65");
 				resultados41Anios.setNumeroVotosEdad(contador41Anios[i]);
-				//AÑADIMOS LOS VOTOS DE 66 Y MAS AÑOS
-				resultados66Anios=new ResultadosEdad();
+
+				// AÑADIMOS LOS VOTOS DE 66 Y MAS AÑOS
+				resultados66Anios = new ResultadosEdad();
 				resultados66Anios.setArtista(artistas.get(i));
 				resultados66Anios.setRango("RANGO_MAS_66");
 				resultados66Anios.setNumeroVotosEdad(contador66Anios[i]);
@@ -966,7 +1068,8 @@ public class CreacionHilos {
 	}
 
 	/*
-	 * METODO PARA GUARDAR LAS VOTACIONES POR COMUNIDAD EN LA BASE DE DATOS
+	 * INSERTAR VOTOS COMUNIDAD: METODO PARA GUARDAR LAS VOTACIONES POR COMUNIDAD EN
+	 * LA BASE DE DATOS
 	 */
 	public void insertarVotosComunidad(SessionFactory sessionFac, ArrayList<Ciudadano> votantes) {
 		Session session = null;
@@ -1558,124 +1661,143 @@ public class CreacionHilos {
 			ResultadosComunidad resultadosMurcia;
 			ResultadosComunidad resultadosNavarra;
 			ResultadosComunidad resultadosPaisVasco;
-			int n=11;
-			for(int i=0;i<artistas.size();i++) {
-				resultadosAndalucia=new ResultadosComunidad();
+			int n = 11;
+
+			// RECUPERAMOS DEL ARRAYLIST ARTISTAS EL ARTISTA ADECUADO
+			for (int i = 0; i < artistas.size(); i++) {
+				resultadosAndalucia = new ResultadosComunidad();
 				resultadosAndalucia.setIdResultadoComunidad(n);
 				resultadosAndalucia.setArtista(artistas.get(i));
 				resultadosAndalucia.setNombreComunidad("Andalucia");
 				resultadosAndalucia.setNumeroVotosComunidad(contadorAndalucia[i]);
-				n=n+1;
-				resultadosAragon=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosAragon = new ResultadosComunidad();
 				resultadosAragon.setArtista(artistas.get(i));
 				resultadosAragon.setIdResultadoComunidad(n);
 				resultadosAragon.setNombreComunidad("Aragon");
 				resultadosAragon.setNumeroVotosComunidad(contadorAragon[i]);
-				n=n+1;
-				resultadosAsturias=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosAsturias = new ResultadosComunidad();
 				resultadosAsturias.setArtista(artistas.get(i));
 				resultadosAsturias.setIdResultadoComunidad(n);
 				resultadosAsturias.setNombreComunidad("Asturias");
 				resultadosAsturias.setNumeroVotosComunidad(contadorAsturias[i]);
-				n=n+1;
-				resultadosBaleares=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosBaleares = new ResultadosComunidad();
 				resultadosBaleares.setArtista(artistas.get(i));
 				resultadosBaleares.setIdResultadoComunidad(n);
 				resultadosBaleares.setNombreComunidad("Baleares");
 				resultadosBaleares.setNumeroVotosComunidad(contadorBaleares[i]);
 				resultadosBaleares.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCanarias=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCanarias = new ResultadosComunidad();
 				resultadosCanarias.setArtista(artistas.get(i));
 				resultadosCanarias.setNombreComunidad("Canarias");
 				resultadosCanarias.setNumeroVotosComunidad(contadorCanarias[i]);
 				resultadosCanarias.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCantabria=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCantabria = new ResultadosComunidad();
 				resultadosCantabria.setArtista(artistas.get(i));
 				resultadosCantabria.setNombreComunidad("Cantabria");
 				resultadosCantabria.setNumeroVotosComunidad(contadorCantabria[i]);
 				resultadosCantabria.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCastillaLaMancha=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCastillaLaMancha = new ResultadosComunidad();
 				resultadosCastillaLaMancha.setArtista(artistas.get(i));
 				resultadosCastillaLaMancha.setNombreComunidad("Castilla La Mancha");
 				resultadosCastillaLaMancha.setNumeroVotosComunidad(contadorCastillaLaMancha[i]);
 				resultadosCastillaLaMancha.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCastillaYLeon=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCastillaYLeon = new ResultadosComunidad();
 				resultadosCastillaYLeon.setArtista(artistas.get(i));
 				resultadosCastillaYLeon.setNombreComunidad("Castilla y Leon");
 				resultadosCastillaYLeon.setNumeroVotosComunidad(contadorCastillaYLeon[i]);
 				resultadosCastillaYLeon.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCatalunia=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCatalunia = new ResultadosComunidad();
 				resultadosCatalunia.setArtista(artistas.get(i));
 				resultadosCatalunia.setNombreComunidad("Catalunia");
 				resultadosCatalunia.setNumeroVotosComunidad(contadorCatalunia[i]);
 				resultadosCatalunia.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosCeuta=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosCeuta = new ResultadosComunidad();
 				resultadosCeuta.setArtista(artistas.get(i));
 				resultadosCeuta.setNombreComunidad("Ceuta");
 				resultadosCeuta.setNumeroVotosComunidad(contadorCeuta[i]);
 				resultadosCeuta.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosValencia=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosValencia = new ResultadosComunidad();
 				resultadosValencia.setArtista(artistas.get(i));
 				resultadosValencia.setNombreComunidad("Comunidad Valenciana");
 				resultadosValencia.setNumeroVotosComunidad(contadorValencia[i]);
 				resultadosValencia.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosExtremadura=new ResultadosComunidad();
+				n = n + 1;
+				resultadosExtremadura = new ResultadosComunidad();
 				resultadosExtremadura.setArtista(artistas.get(i));
 				resultadosExtremadura.setNombreComunidad("Extremadura");
 				resultadosExtremadura.setNumeroVotosComunidad(contadorExtremadura[i]);
 				resultadosExtremadura.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosGalicia=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosGalicia = new ResultadosComunidad();
 				resultadosGalicia.setArtista(artistas.get(i));
 				resultadosGalicia.setNombreComunidad("Galicia");
 				resultadosGalicia.setNumeroVotosComunidad(contadorGalicia[i]);
 				resultadosGalicia.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosLaRioja=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosLaRioja = new ResultadosComunidad();
 				resultadosLaRioja.setArtista(artistas.get(i));
 				resultadosLaRioja.setNombreComunidad("La Rioja");
 				resultadosLaRioja.setNumeroVotosComunidad(contadorLaRioja[i]);
 				resultadosLaRioja.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosMadrid=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosMadrid = new ResultadosComunidad();
 				resultadosMadrid.setArtista(artistas.get(i));
 				resultadosMadrid.setNombreComunidad("Madrid");
 				resultadosMadrid.setNumeroVotosComunidad(contadorMadrid[i]);
 				resultadosMadrid.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosMelilla=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosMelilla = new ResultadosComunidad();
 				resultadosMelilla.setArtista(artistas.get(i));
 				resultadosMelilla.setNombreComunidad("Melilla");
 				resultadosMelilla.setNumeroVotosComunidad(contadorMelilla[i]);
 				resultadosMelilla.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosMurcia=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosMurcia = new ResultadosComunidad();
 				resultadosMurcia.setArtista(artistas.get(i));
 				resultadosMurcia.setNombreComunidad("Murcia");
 				resultadosMurcia.setNumeroVotosComunidad(contadorMurcia[i]);
 				resultadosMurcia.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosNavarra=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosNavarra = new ResultadosComunidad();
 				resultadosNavarra.setArtista(artistas.get(i));
 				resultadosNavarra.setNombreComunidad("Navarra");
 				resultadosNavarra.setNumeroVotosComunidad(contadorNavarra[i]);
 				resultadosNavarra.setIdResultadoComunidad(n);
-				n=n+1;
-				resultadosPaisVasco=new ResultadosComunidad();
+				n = n + 1;
+
+				resultadosPaisVasco = new ResultadosComunidad();
 				resultadosPaisVasco.setArtista(artistas.get(i));
 				resultadosPaisVasco.setNombreComunidad("Pais Vasco");
 				resultadosPaisVasco.setNumeroVotosComunidad(contadorPaisVasco[i]);
 				resultadosPaisVasco.setIdResultadoComunidad(n);
-				n=n+1;
-				
+				n = n + 1;
+
 				session.saveOrUpdate(resultadosAndalucia);
 				session.saveOrUpdate(resultadosAragon);
 				session.saveOrUpdate(resultadosAsturias);
@@ -1696,7 +1818,7 @@ public class CreacionHilos {
 				session.saveOrUpdate(resultadosMurcia);
 				session.saveOrUpdate(resultadosNavarra);
 			}
-			
+
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();

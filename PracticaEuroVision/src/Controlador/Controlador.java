@@ -16,50 +16,50 @@ import persistencias.Resultado;
 
 public class Controlador implements ActionListener {
 	Vista inicio = new Vista();
-	ArrayList<String> codigocolor = new ArrayList<String>();
+	ArrayList<String> codigoColor = new ArrayList<String>();
 	CreacionHilos crearHilos = new CreacionHilos();
-	Color nuevocolor = new Color(0, 0, 0);
+	Color nuevoColor = new Color(0, 0, 0);
 
 	public Controlador(Vista vista) {
 		inicio = vista;
 
 		// COLORES INTERFAZ
 		for (int u = 0; u < 256; u++) {
-			codigocolor.add(String.valueOf(u));
+			codigoColor.add(String.valueOf(u));
 		}
 
 		// LISTENER BOTONES
 		this.inicio.btcomprobarpersonalizacion.addActionListener(this);
 		this.inicio.btsalirpersonalizacion.addActionListener(this);
-		this.inicio.crearcolor.addActionListener(this);
-		this.inicio.fondoazul.addActionListener(this);
-		this.inicio.fondonegro.addActionListener(this);
-		this.inicio.fondoverde.addActionListener(this);
-		this.inicio.fondorojo.addActionListener(this);
-		this.inicio.fondoblanco.addActionListener(this);
-		this.inicio.nuevofondo.addActionListener(this);
-		this.inicio.letraazul.addActionListener(this);
-		this.inicio.letrablanco.addActionListener(this);
-		this.inicio.letranegro.addActionListener(this);
-		this.inicio.letrarojo.addActionListener(this);
-		this.inicio.letraverde.addActionListener(this);
-		this.inicio.nuevoletra.addActionListener(this);
+		this.inicio.crearColor.addActionListener(this);
+		this.inicio.fondoAzul.addActionListener(this);
+		this.inicio.fondoNegro.addActionListener(this);
+		this.inicio.fondoVerde.addActionListener(this);
+		this.inicio.fondoRojo.addActionListener(this);
+		this.inicio.fondoBlanco.addActionListener(this);
+		this.inicio.nuevoFondo.addActionListener(this);
+		this.inicio.letraAzul.addActionListener(this);
+		this.inicio.letraBlanco.addActionListener(this);
+		this.inicio.letraNegro.addActionListener(this);
+		this.inicio.letraRojo.addActionListener(this);
+		this.inicio.letraVerde.addActionListener(this);
+		this.inicio.nuevoLetra.addActionListener(this);
 		this.inicio.btsalircomunidades.addActionListener(this);
-		this.inicio.mostrarcomunidades.addActionListener(this);
-		this.inicio.mostraredades.addActionListener(this);
+		this.inicio.mostrarComunidades.addActionListener(this);
+		this.inicio.mostrarEdades.addActionListener(this);
 		this.inicio.btsaliredades.addActionListener(this);
 		this.inicio.bt18anios.addActionListener(this);
 		this.inicio.bt26anios.addActionListener(this);
 		this.inicio.bt41anios.addActionListener(this);
 		this.inicio.bt66anios.addActionListener(this);
-		this.inicio.btandalucia.addActionListener(this);
+		this.inicio.btnAndalucia.addActionListener(this);
 		this.inicio.btaragon.addActionListener(this);
 		this.inicio.btasturias.addActionListener(this);
 		this.inicio.bislasbaleares.addActionListener(this);
 		this.inicio.bislascanarias.addActionListener(this);
 		this.inicio.btcastillaleon.addActionListener(this);
-		this.inicio.btcastillamancha.addActionListener(this);
-		this.inicio.btcatalunia.addActionListener(this);
+		this.inicio.btnCastillaLaMancha.addActionListener(this);
+		this.inicio.btnCatalunia.addActionListener(this);
 		this.inicio.bceuta.addActionListener(this);
 		this.inicio.btvalencia.addActionListener(this);
 		this.inicio.btextremadura.addActionListener(this);
@@ -70,15 +70,15 @@ public class Controlador implements ActionListener {
 		this.inicio.btmurcia.addActionListener(this);
 		this.inicio.btnavarra.addActionListener(this);
 		this.inicio.btpaisvasco.addActionListener(this);
+		
 		// LLAMAMOS AL METODO CREAR VOTANTES DE LA CLASE CREACION HILOS
-		//crearHilos.generarVotantes();
-		
-		
+		// crearHilos.generarVotantes();
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ArrayList<String>artista=new ArrayList<String>();
+		ArrayList<String> artista = new ArrayList<String>();
 		artista.add("Joel");
 		artista.add("Marc");
 		artista.add("Alba");
@@ -89,39 +89,46 @@ public class Controlador implements ActionListener {
 		artista.add("Julio");
 		artista.add("Elton");
 		artista.add("Victoria");
-		// Cambiar Color Fondo
-		if (e.getSource() == inicio.fondoazul) {
+		
+		// CAMBIAR COLOR FONDO
+		if (e.getSource() == inicio.fondoAzul) {
 			inicio.contentPane.setBackground(Color.blue);
-			inicio.ppersonalizacion.setBackground(Color.blue);
-			inicio.panelcomunidades.setBackground(Color.blue);
+			inicio.panelPersonalizacion.setBackground(Color.blue);
+			inicio.panelComunidades.setBackground(Color.blue);
 		}
-		if (e.getSource() == inicio.fondoblanco) {
+		
+		if (e.getSource() == inicio.fondoBlanco) {
 			inicio.contentPane.setBackground(Color.white);
-			inicio.ppersonalizacion.setBackground(Color.white);
-			inicio.panelcomunidades.setBackground(Color.white);
+			inicio.panelPersonalizacion.setBackground(Color.white);
+			inicio.panelComunidades.setBackground(Color.white);
 		}
-		if (e.getSource() == inicio.fondoverde) {
+		
+		if (e.getSource() == inicio.fondoVerde) {
 			inicio.contentPane.setBackground(Color.green);
-			inicio.ppersonalizacion.setBackground(Color.green);
-			inicio.panelcomunidades.setBackground(Color.green);
+			inicio.panelPersonalizacion.setBackground(Color.green);
+			inicio.panelComunidades.setBackground(Color.green);
 		}
-		if (e.getSource() == inicio.fondonegro) {
+		
+		if (e.getSource() == inicio.fondoNegro) {
 			inicio.contentPane.setBackground(Color.black);
-			inicio.ppersonalizacion.setBackground(Color.black);
-			inicio.panelcomunidades.setBackground(Color.black);
+			inicio.panelPersonalizacion.setBackground(Color.black);
+			inicio.panelComunidades.setBackground(Color.black);
 		}
-		if (e.getSource() == inicio.fondorojo) {
+		
+		if (e.getSource() == inicio.fondoRojo) {
 			inicio.contentPane.setBackground(Color.red);
-			inicio.ppersonalizacion.setBackground(Color.red);
-			inicio.panelcomunidades.setBackground(Color.red);
+			inicio.panelPersonalizacion.setBackground(Color.red);
+			inicio.panelComunidades.setBackground(Color.red);
 		}
-		if (e.getSource() == inicio.nuevofondo) {
-			inicio.contentPane.setBackground(nuevocolor);
-			inicio.ppersonalizacion.setBackground(nuevocolor);
-			inicio.panelcomunidades.setBackground(nuevocolor);
+		
+		if (e.getSource() == inicio.nuevoFondo) {
+			inicio.contentPane.setBackground(nuevoColor);
+			inicio.panelPersonalizacion.setBackground(nuevoColor);
+			inicio.panelComunidades.setBackground(nuevoColor);
 		}
-		// Cambiar Color Letra
-		if (e.getSource() == inicio.letraazul) {
+		
+		// CAMBIAR COLOR LETRA
+		if (e.getSource() == inicio.letraAzul) {
 			/**
 			 * inicio.lbcolor1.setForeground(Color.blue);
 			 * inicio.lbcolor2.setForeground(Color.blue);
@@ -157,7 +164,8 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(Color.blue);
 			 **/
 		}
-		if (e.getSource() == inicio.letrablanco) {
+		
+		if (e.getSource() == inicio.letraBlanco) {
 			/**
 			 * inicio.lbcolor1.setForeground(Color.white);
 			 * inicio.lbcolor2.setForeground(Color.white);
@@ -194,7 +202,8 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(Color.white);
 			 **/
 		}
-		if (e.getSource() == inicio.letranegro) {
+		
+		if (e.getSource() == inicio.letraNegro) {
 			/**
 			 * inicio.lbcolor1.setForeground(Color.black);
 			 * inicio.lbcolor2.setForeground(Color.black);
@@ -231,7 +240,8 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(Color.black);
 			 **/
 		}
-		if (e.getSource() == inicio.letrarojo) {
+		
+		if (e.getSource() == inicio.letraRojo) {
 			/**
 			 * inicio.lbcolor1.setForeground(Color.red);
 			 * inicio.lbcolor2.setForeground(Color.red);
@@ -264,7 +274,8 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(Color.red);
 			 **/
 		}
-		if (e.getSource() == inicio.letraverde) {
+		
+		if (e.getSource() == inicio.letraVerde) {
 			/**
 			 * inicio.lbcolor1.setForeground(Color.green);
 			 * inicio.lbcolor2.setForeground(Color.green);
@@ -301,7 +312,8 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(Color.green);
 			 **/
 		}
-		if (e.getSource() == inicio.nuevoletra) {
+		
+		if (e.getSource() == inicio.nuevoLetra) {
 			/**
 			 * inicio.lbcolor1.setForeground(nuevocolor);
 			 * inicio.lbcolor2.setForeground(nuevocolor);
@@ -337,995 +349,980 @@ public class Controlador implements ActionListener {
 			 * inicio.bssinfiltro.setForeground(nuevocolor);
 			 **/
 		}
-		// MODIFICAR COLOR
-		if (e.getSource() == inicio.crearcolor) {
-			inicio.ppersonalizacion.setVisible(true);
-			inicio.panelcomunidades.setVisible(false);
-			inicio.paneledades.setVisible(false);
+		
+		// MODIFICAR COLOR - CRER UN NUEVO COLOR PERSONALIZADO
+		if (e.getSource() == inicio.crearColor) {
+			inicio.panelPersonalizacion.setVisible(true);
+			inicio.panelComunidades.setVisible(false);
+			inicio.panelEdades.setVisible(false);
 		}
+		
 		if (e.getSource() == inicio.btsalirpersonalizacion) {
-			inicio.ppersonalizacion.setVisible(false);
+			inicio.panelPersonalizacion.setVisible(false);
 		}
-		// Comprobacion crear nuevo color
+		
+		// COMPROBAR CREAR UN COLOR PERSONALIZADO
 		if (e.getSource() == inicio.btcomprobarpersonalizacion) {
-			// Comparar primer digito
-			if (codigocolor.contains(inicio.colordigito1.getText())) {
+			// COMPROBAR PRIMER DIGITO
+			if (codigoColor.contains(inicio.colorDigito1.getText())) {
 				inicio.textocolordigito1.setText("Digito Valido.");
 			} else {
 				inicio.textocolordigito1.setText("Digito No Valido.");
 			}
-			// Comparar segundo digito
-			if (codigocolor.contains(inicio.colordigito2.getText())) {
+			
+			// COMPROBAR SEGUNDO DIGITO
+			if (codigoColor.contains(inicio.colorDigito2.getText())) {
 				inicio.textocolordigito2.setText("Digito Valido.");
 			} else {
 				inicio.textocolordigito2.setText("Digito No Valido.");
 			}
-			// Comparar tercer digito
-			if (codigocolor.contains(inicio.colordigito3.getText())) {
-				inicio.textocolordigito3.setText("Digito Valido.");
+			
+			// COMPROBAR TERCER DIGITO
+			if (codigoColor.contains(inicio.colorDigito3.getText())) {
+				inicio.textoColorDigito1.setText("Digito Valido.");
 			} else {
-				inicio.textocolordigito3.setText("Digito No Valido.");
+				inicio.textoColorDigito1.setText("Digito No Valido.");
 			}
-			// Mostrar Color
-			if (codigocolor.contains(inicio.colordigito3.getText())
-					&& codigocolor.contains(inicio.colordigito2.getText())
-					&& codigocolor.contains(inicio.colordigito1.getText())) {
-				int d1 = Integer.parseInt(inicio.colordigito1.getText());
-				int d2 = Integer.parseInt(inicio.colordigito2.getText());
-				int d3 = Integer.parseInt(inicio.colordigito3.getText());
-				nuevocolor = new Color(d1, d2, d3);
-				inicio.colorprevisto.setBackground(nuevocolor);
+			
+			// MOSTRAR COLOR PERSONALIZADO
+			if (codigoColor.contains(inicio.colorDigito3.getText())
+					&& codigoColor.contains(inicio.colorDigito2.getText())
+					&& codigoColor.contains(inicio.colorDigito1.getText())) {
+				int d1 = Integer.parseInt(inicio.colorDigito1.getText());
+				int d2 = Integer.parseInt(inicio.colorDigito2.getText());
+				int d3 = Integer.parseInt(inicio.colorDigito3.getText());
+				nuevoColor = new Color(d1, d2, d3);
+				inicio.colorPrevisto.setBackground(nuevoColor);
 			}
 
 		}
-		// Mostrar Panel Comunidades
-		if (e.getSource() == inicio.btsalircomunidades) {
-			inicio.panelcomunidades.setVisible(false);
-		}
-		if (e.getSource() == inicio.mostrarcomunidades) {
-			inicio.panelcomunidades.setVisible(true);
-			inicio.paneledades.setVisible(false);
-		}
-		// Mostrar Panel EDADES
-				if (e.getSource() == inicio.btsaliredades) {
-					inicio.paneledades.setVisible(false);
-				}
-				if (e.getSource() == inicio.mostraredades) {
-					inicio.panelcomunidades.setVisible(false);
-					inicio.paneledades.setVisible(true);
-				}
-		//OBTENER RESULTADOS POR EDAD
-		//18-26 AÑOS
-		if(e.getSource()==inicio.bt18anios) {
-			List<Resultado>r=new ArrayList();
-			r=crearHilos.obtenerpuntosedad("RANGO_18_25");
-			//1 POSICION
-			inicio.nombreedad1.setText(r.get(0).getArtista());
-			int valor=r.get(0).getVotos();
-			inicio.puntosedad1.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad1.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					inicio.ftedad1.setIcon(fotoed);
-				}
-				
-			}
-			//2 POSICION
-			inicio.nombreedad2.setText(r.get(1).getArtista());
-			valor=r.get(1).getVotos();
-			inicio.puntosedad2.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad2.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-			}
-			//3 POSICION
-			inicio.nombreedad3.setText(r.get(2).getArtista());
-			valor=r.get(2).getVotos();
-			inicio.puntosedad3.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad3.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-			}
-		}
-		if(e.getSource()==inicio.bt26anios) {
-			List<Resultado>r=new ArrayList();
-			r=crearHilos.obtenerpuntosedad("RANGO_26_40");
-			//1 POSICION
-			inicio.nombreedad1.setText(r.get(0).getArtista());
-			int valor=r.get(0).getVotos();
-			inicio.puntosedad1.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad1.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					inicio.ftedad1.setIcon(fotoed);
-				}
-				
-			}
-			//2 POSICION
-			inicio.nombreedad2.setText(r.get(1).getArtista());
-			valor=r.get(1).getVotos();
-			inicio.puntosedad2.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad2.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-			}
-			//3 POSICION
-			inicio.nombreedad3.setText(r.get(2).getArtista());
-			valor=r.get(2).getVotos();
-			inicio.puntosedad3.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad3.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-			}
-		}
-		if(e.getSource()==inicio.bt41anios) {
-			List<Resultado>r=new ArrayList();
-			r=crearHilos.obtenerpuntosedad("RANGO_41_65");
-			//1 POSICION
-			inicio.nombreedad1.setText(r.get(0).getArtista());
-			int valor=r.get(0).getVotos();
-			inicio.puntosedad1.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad1.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					inicio.ftedad1.setIcon(fotoed);
-				}
-				
-			}
-			//2 POSICION
-			inicio.nombreedad2.setText(r.get(1).getArtista());
-			valor=r.get(1).getVotos();
-			inicio.puntosedad2.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad2.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-			}
-			//3 POSICION
-			inicio.nombreedad3.setText(r.get(2).getArtista());
-			valor=r.get(2).getVotos();
-			inicio.puntosedad3.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad3.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-				if(inicio.nombreedad3.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
-				}
-			}
 		
+		// MOSTRAR PANEL COMUNIDADES
+		if (e.getSource() == inicio.btsalircomunidades) {
+			inicio.panelComunidades.setVisible(false);
 		}
-		if(e.getSource()==inicio.bt66anios) {
-			List<Resultado>r=new ArrayList();
-			r=crearHilos.obtenerpuntosedad("RANGO_MAS_66");
-			//1 POSICION
+		if (e.getSource() == inicio.mostrarComunidades) {
+			inicio.panelComunidades.setVisible(true);
+			inicio.panelEdades.setVisible(false);
+		}
+		
+		// MOSTRAR PANEL EDADES
+		if (e.getSource() == inicio.btsaliredades) {
+			inicio.panelEdades.setVisible(false);
+		}
+		if (e.getSource() == inicio.mostrarEdades) {
+			inicio.panelComunidades.setVisible(false);
+			inicio.panelEdades.setVisible(true);
+		}
+		
+		// OBTENER RESULTADOS POR EDAD
+		// 18-26 AÑOS
+		if (e.getSource() == inicio.bt18anios) {
+			List<Resultado> r = new ArrayList<Resultado>();
+			r = crearHilos.obtenerVotosEdad("RANGO_18_25");
+			
+			// 1 POSICION
 			inicio.nombreedad1.setText(r.get(0).getArtista());
-			int valor=r.get(0).getVotos();
+			int valor = r.get(0).getVotos();
 			inicio.puntosedad1.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad1.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad1.setIcon(fotoed);
-				}
-				if(inicio.nombreedad1.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad1.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				} else if (inicio.nombreedad1.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
 					inicio.ftedad1.setIcon(fotoed);
 				}
-				
 			}
-			//2 POSICION
+			
+			// 2 POSICION
 			inicio.nombreedad2.setText(r.get(1).getArtista());
-			valor=r.get(1).getVotos();
-			inicio.puntosedad2.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad2.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
-				}
-				if(inicio.nombreedad2.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad2.setIcon(fotoed);
+			valor = r.get(1).getVotos();
+			inicio.puntosEdad2.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad2.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				} else if (inicio.nombreedad2.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
 				}
 			}
-			//3 POSICION
+			
+			// 3 POSICION
 			inicio.nombreedad3.setText(r.get(2).getArtista());
-			valor=r.get(2).getVotos();
-			inicio.puntosedad3.setText(String.valueOf(valor));
-			for(int i=0;i<artista.size();i++) {
-				if(inicio.nombreedad3.getText().equals("Joel")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+			valor = r.get(2).getVotos();
+			inicio.puntosEdad3.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad3.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				} else if (inicio.nombreedad3.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Marc")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+			}
+		}
+		
+		if (e.getSource() == inicio.bt26anios) {
+			List<Resultado> r = new ArrayList();
+			r = crearHilos.obtenerVotosEdad("RANGO_26_40");
+			// 1 POSICION
+			inicio.nombreedad1.setText(r.get(0).getArtista());
+			int valor = r.get(0).getVotos();
+			inicio.puntosedad1.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad1.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Alba")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Thiago")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Amie")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Sarah")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Nahid")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Julio")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Elton")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
 				}
-				if(inicio.nombreedad3.getText().equals("Victoria")) {
-					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png")); 
-					  Image fotoedt = fotoed.getImage(); // transform it 
-					  Image fotoedtt = fotoedt.getScaledInstance(150, 150,  java.awt.Image.SCALE_SMOOTH); 
-					  fotoed = new ImageIcon(fotoedtt);
-					  inicio.ftedad3.setIcon(fotoed);
+				if (inicio.nombreedad1.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+
+			}
+			// 2 POSICION
+			inicio.nombreedad2.setText(r.get(1).getArtista());
+			valor = r.get(1).getVotos();
+			inicio.puntosEdad2.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad2.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+			}
+			// 3 POSICION
+			inicio.nombreedad3.setText(r.get(2).getArtista());
+			valor = r.get(2).getVotos();
+			inicio.puntosEdad3.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad3.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+			}
+		}
+		if (e.getSource() == inicio.bt41anios) {
+			List<Resultado> r = new ArrayList();
+			r = crearHilos.obtenerVotosEdad("RANGO_41_65");
+			// 1 POSICION
+			inicio.nombreedad1.setText(r.get(0).getArtista());
+			int valor = r.get(0).getVotos();
+			inicio.puntosedad1.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad1.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+
+			}
+			// 2 POSICION
+			inicio.nombreedad2.setText(r.get(1).getArtista());
+			valor = r.get(1).getVotos();
+			inicio.puntosEdad2.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad2.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+			}
+			// 3 POSICION
+			inicio.nombreedad3.setText(r.get(2).getArtista());
+			valor = r.get(2).getVotos();
+			inicio.puntosEdad3.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad3.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+			}
+
+		}
+		if (e.getSource() == inicio.bt66anios) {
+			List<Resultado> r = new ArrayList();
+			r = crearHilos.obtenerVotosEdad("RANGO_MAS_66");
+			// 1 POSICION
+			inicio.nombreedad1.setText(r.get(0).getArtista());
+			int valor = r.get(0).getVotos();
+			inicio.puntosedad1.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad1.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+				if (inicio.nombreedad1.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad1.setIcon(fotoed);
+				}
+
+			}
+			// 2 POSICION
+			inicio.nombreedad2.setText(r.get(1).getArtista());
+			valor = r.get(1).getVotos();
+			inicio.puntosEdad2.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad2.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+				if (inicio.nombreedad2.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad2.setIcon(fotoed);
+				}
+			}
+			// 3 POSICION
+			inicio.nombreedad3.setText(r.get(2).getArtista());
+			valor = r.get(2).getVotos();
+			inicio.puntosEdad3.setText(String.valueOf(valor));
+			for (int i = 0; i < artista.size(); i++) {
+				if (inicio.nombreedad3.getText().equals("Joel")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante1.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Marc")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante8.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Alba")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante9.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Thiago")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante3.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Amie")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante6.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Sarah")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante4.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Nahid")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante7.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Julio")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante10.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Elton")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante5.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
+				}
+				if (inicio.nombreedad3.getText().equals("Victoria")) {
+					ImageIcon fotoed = new ImageIcon(Vista.class.getResource("/vista/img/cantante2.png"));
+					Image fotoedt = fotoed.getImage(); // transform it
+					Image fotoedtt = fotoedt.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
+					fotoed = new ImageIcon(fotoedtt);
+					inicio.ftedad3.setIcon(fotoed);
 				}
 			}
 		}
