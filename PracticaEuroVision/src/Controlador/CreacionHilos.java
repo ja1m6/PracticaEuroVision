@@ -13,11 +13,22 @@ import Modelo.Ciudadano;
 import persistencias.Artista;
 import persistencias.PorcentajeVotacionRango;
 import persistencias.PorcentajesRangoEdad;
+import persistencias.Resultado;
 import persistencias.ResultadosComunidad;
 import persistencias.ResultadosEdad;
 import persistencias.ResultadosGenerales;
 
 public class CreacionHilos {
+	
+	public static void main(String[] args) {
+		List<Resultado>resultadoscom=new ArrayList();
+		resultadoscom=obtenerpuntosedad("RANGO_26_40");
+		Artista r=null;
+		for(int i=0;i<3;i++) {
+		System.out.println(resultadoscom.get(i).getArtista());
+		System.out.println(resultadoscom.get(i).getVotos());
+		}
+	}
 	
 	public void generarVotantes() {
 		/*
@@ -562,6 +573,58 @@ public class CreacionHilos {
 		insertarVotosGenerales(sf, votantes);
 		insertarVotosEdad(sf, votantes);
 		insertarVotosComunidad(sf, votantes);
+	}
+	
+	public static List<Resultado> obtenerpuntoscomunidad(String nombrecomunidad){
+		SessionFactory sf = null;
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		sf = cfg.buildSessionFactory();
+		Session s=sf.getCurrentSession();
+		List<Resultado>resultadoscom=new ArrayList();
+		try {
+			s.beginTransaction();
+			Query q=s.createSQLQuery("select  rs.numero_votos_comunidad,a.nombre from resultados_comunidad as rs inner join artista as a on a.dni=rs.dni_artista where nombre_comunidad=:name  order by numero_votos_comunidad desc")
+			.setParameter("name",nombrecomunidad);
+			List<Object[]> resultado =q.getResultList();
+			for(Object[] fila:resultado) {
+				int votos=(int) fila[0];
+				String artista=(String) fila[1];
+				resultadoscom.add(new Resultado(artista,votos));
+			}
+		} catch (Exception e) {
+			s.getTransaction().rollback();
+			e.printStackTrace();
+		}finally {
+			s.close();
+		}
+		return resultadoscom;
+	}
+	
+	public static List<Resultado> obtenerpuntosedad(String rangoedad){
+		SessionFactory sf = null;
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		sf = cfg.buildSessionFactory();
+		Session s=sf.getCurrentSession();
+		List<Resultado>resultadoscom=new ArrayList();
+		try {
+			s.beginTransaction();
+			Query q=s.createSQLQuery("select re.numero_votos_edad,a.nombre from resultados_edad as re inner join artista as a on re.dni_artista=a.dni where rango=:name order by numero_votos_edad desc")
+			.setParameter("name",rangoedad);
+			List<Object[]> resultado =q.getResultList();
+			for(Object[] fila:resultado) {
+				int votos=(int) fila[0];
+				String artista=(String) fila[1];
+				resultadoscom.add(new Resultado(artista,votos));
+			}
+		} catch (Exception e) {
+			s.getTransaction().rollback();
+			e.printStackTrace();
+		}finally {
+			s.close();
+		}
+		return resultadoscom;
 	}
 
 	private void eliminaresgistros(SessionFactory sf) {
