@@ -26,12 +26,12 @@ public class Vista extends JFrame{
 	
 	public JPanel contentPane,ppersonalizacion,colorprevisto,panelcomunidades,paneledades;
 	public JButton btsalirpersonalizacion,btcastillaleon,btasturias,btcomprobarpersonalizacion,btsalircomunidades,btgalicia,btnavarra,btcantabria,btsaliredades,bt18anios,btpaisvasco,bt26anios,bt41anios,bt66anios;
-	public JLabel nombreedad1,puntoscomun1,puntoscomun2,puntoscomun3,puntosedad1,ftedad1,puntosedad2,puntosedad3,puntosedad3ftedad1,ftedad2,ftedad3,nombreedad2,nombreedad3,label_imgBenidormF,mapaedades,textovistapreviap,textocolordigito3,textocolordigito2,textocolordigito1,textocolor1,textocolor2,textocolor3,mapacomunidades,ftcomunidad1,ftcomunidad2,ftcomunidad3,nombrecomun1,nombrecomun2,nombrecomun3;
+	public JLabel nombreedad1,resultados3,podioresultados,votosresultado2,votosresultado1,votosresultado3,imagenfondoresultados,resultados2,resultados1,puntoscomun1,puntoscomun2,puntoscomun3,puntosedad1,ftedad1,puntosedad2,puntosedad3,puntosedad3ftedad1,ftedad2,ftedad3,nombreedad2,nombreedad3,label_imgBenidormF,mapaedades,textovistapreviap,textocolordigito3,textocolordigito2,textocolordigito1,textocolor1,textocolor2,textocolor3,mapacomunidades,ftcomunidad1,ftcomunidad2,ftcomunidad3,nombrecomun1,nombrecomun2,nombrecomun3;
 	public JTextField colordigito1,colordigito2,colordigito3;
 	public JMenuBar mb;
 	public JMenu menuFondo,menuCuadros,menuLetra,menuColorFondo,menuColorLetras,menuColorCuadros,menuColorNuevo,menuVerVotosporComunidad,menuPersonalizacion,menuVerVotosporEdad;
 	public JMenuItem fondorojo,mostraredades,fondonegro,fondoazul,fondoblanco,crearcolor,fondoverde,nuevofondo,nuevocuadro,nuevoletra,cuadroverde,cuadroblanco,cuadronegro,cuadroazul,cuadrorojo,letrarojo,letranegro,letraazul,letrablanco,letragris,letraverde,mostrarcomunidades;
-	private JButton btcatalunia,btcastillamancha,btextremadura,btandalucia,btaragon,btmurcia,bislasbaleares,btvalencia,btmadrid,btlarioja,bislascanarias,bceuta,bmelilla;
+	public JButton btcatalunia,btcastillamancha,btextremadura,btandalucia,btaragon,btmurcia,bislasbaleares,btvalencia,btmadrid,btlarioja,bislascanarias,bceuta,bmelilla;
 
 	
 	public static void main(String[] args) {
@@ -187,6 +187,7 @@ public class Vista extends JFrame{
 			      nuevofondo = new JMenuItem("Nuevo Color");
 			      nuevofondo.setFont(new Font("Andale Mono", 1, 14));
 			      menuFondo.add(nuevofondo);
+			      
 			      
 			    //Panel EDADES
 			      paneledades = new JPanel();
@@ -678,6 +679,61 @@ public class Vista extends JFrame{
 		label_imgBenidormF = new JLabel(fotobf);
 		label_imgBenidormF.setBounds(-117, 488, 647, 200);
 		contentPane.add(label_imgBenidormF);
+		
+		ImageIcon resultado3 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+		Image resultado3t = resultado3.getImage(); // transform it 
+		Image resultado3tt = resultado3t.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); 
+		resultado3 = new ImageIcon(resultado3tt);
+		resultados3 = new JLabel(resultado3);
+		resultados3.setBounds(994, 139, 200, 200);
+		contentPane.add(resultados3);
+		
+		ImageIcon resultado2 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+		Image resultado2t = resultado2.getImage(); // transform it 
+		Image resultado2tt = resultado2t.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); 
+		resultado2 = new ImageIcon(resultado2tt);
+		resultados2 = new JLabel(resultado2);
+		resultados2.setBounds(455, 102, 200, 200);
+		contentPane.add(resultados2);
+		
+		ImageIcon resultado1 = new ImageIcon(Vista.class.getResource("/vista/img/interro.jpg")); 
+		Image resultado1t = resultado1.getImage(); // transform it 
+		Image resultado1tt = resultado1t.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); 
+		resultado1 = new ImageIcon(resultado1tt);
+		resultados1 = new JLabel(resultado1);
+		resultados1.setBounds(725, 0, 200, 200);
+		contentPane.add(resultados1);
+		
+		votosresultado2 = new JLabel("VOTOS: ???");
+		votosresultado2.setHorizontalAlignment(SwingConstants.CENTER);
+		votosresultado2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		votosresultado2.setBounds(455, 590, 218, 35);
+		contentPane.add(votosresultado2);
+		
+		votosresultado1 = new JLabel("VOTOS: ???");
+		votosresultado1.setHorizontalAlignment(SwingConstants.CENTER);
+		votosresultado1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		votosresultado1.setBounds(719, 590, 218, 35);
+		contentPane.add(votosresultado1);
+		
+		votosresultado3 = new JLabel("VOTOS: ???");
+		votosresultado3.setHorizontalAlignment(SwingConstants.CENTER);
+		votosresultado3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		votosresultado3.setBounds(976, 590, 218, 35);
+		contentPane.add(votosresultado3);
+		
+		ImageIcon podio = new ImageIcon(Vista.class.getResource("/vista/img/podio.png")); 
+		Image podiot = podio.getImage(); // transform it 
+		Image podiott = podiot.getScaledInstance(1000, 600,  java.awt.Image.SCALE_SMOOTH); 
+		podio = new ImageIcon(podiott);
+		podioresultados = new JLabel(podio);
+		podioresultados.setBounds(333, 201, 984, 414);
+		contentPane.add(podioresultados);
+		
+		
+		imagenfondoresultados = new JLabel("New label");
+		imagenfondoresultados.setBounds(0, 0, 1234, 686);
+		contentPane.add(imagenfondoresultados);
 		
 	}
 }
