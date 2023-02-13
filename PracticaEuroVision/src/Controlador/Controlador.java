@@ -11,7 +11,9 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
+import persistencias.Cargador;
 import persistencias.Resultado;
 
 public class Controlador implements ActionListener {
@@ -267,6 +269,7 @@ public class Controlador implements ActionListener {
 		this.inicio.btpaisvasco.addActionListener(this);
 		this.inicio.botonempezar.addActionListener(this);
 		this.inicio.botonparticipantes.addActionListener(this);
+		this.inicio.botonverresultados.addActionListener(this);
 
 	}
 
@@ -283,9 +286,21 @@ public class Controlador implements ActionListener {
 		artista.add("Julio");
 		artista.add("Elton");
 		artista.add("Victoria");
-		//PASAR DE PANEL PRINCIPAL A OTROS
+		//PASAR DE PANEL PRINCIPAL A CARGA
+		if(e.getSource()==inicio.botonverresultados) {
+			if(inicio.procesocargar.getValue()!=100) {
+				JOptionPane.showMessageDialog(null,"Proceso de Carga no Finalizado.");
+			}else {
+				inicio.panelcargar.setVisible(false);
+				inicio.menuVerVotosporComunidad.setVisible(true);
+				inicio.menuVerVotosporEdad.setVisible(true);
+			}
+		}
 		if(e.getSource()==inicio.botonempezar) {
 			inicio.panelinicio.setVisible(false);
+			inicio.panelcargar.setVisible(true);
+			Cargador c=new Cargador(inicio.procesocargar);
+			c.start();
 		}
 		//CAMBIAR COLOR LETRA
 				if (e.getSource() == inicio.nuevoLetra) {

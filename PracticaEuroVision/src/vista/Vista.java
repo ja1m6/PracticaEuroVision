@@ -19,15 +19,16 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JProgressBar;
 
 public class Vista extends JFrame {
 
-	public JPanel contentPane, panelPersonalizacion, colorPrevisto, panelComunidades, panelEdades,panelinicio;
+	public JPanel contentPane, panelPersonalizacion, colorPrevisto, panelComunidades, panelEdades,panelinicio,panelcargar;
 
-	public JButton btsalirpersonalizacion, btcastillaleon, btasturias, btcomprobarpersonalizacion, btsalircomunidades,
+	public JButton btsalirpersonalizacion, botonverresultados,btcastillaleon, btasturias, btcomprobarpersonalizacion, btsalircomunidades,
 			btgalicia, btnavarra, btcantabria, btsaliredades, bt18anios, btpaisvasco, bt26anios, bt41anios, bt66anios;
 
-	public JLabel nombreedad1,tituloinicio,resultados3, podioResultados, votosResultado1, votosResultado2, votosResultado3, resultados2, resultados1, puntoscomun1, puntoscomun2, puntoscomun3, puntosedad1,
+	public JLabel nombreedad1,titulocargar,tituloinicio,resultados3, podioResultados, votosResultado1, votosResultado2, votosResultado3, resultados2, resultados1, puntoscomun1, puntoscomun2, puntoscomun3, puntosedad1,
 			ftedad1, puntosEdad2, puntosEdad3, puntosedad3ftedad1, ftedad2, ftedad3, nombreedad2, nombreedad3,
 			label_imgBenidormF, mapaEdades, textovistapreviap, textoColorDigito1, textocolordigito2, textocolordigito1,
 			textoColor1, textoColor2, textoColor3, mapaComunidades, ftcomunidad1, ftcomunidad2, ftcomunidad3,
@@ -36,6 +37,8 @@ public class Vista extends JFrame {
 	public JTextField colorDigito1, colorDigito2, colorDigito3;
 
 	public JMenuBar menuBar;
+	
+	public JProgressBar procesocargar;
 
 	public JMenu menuFondo, menuCuadros, menuLetra, menuColorFondo, menuColorLetras, menuColorCuadros, menuColorNuevo,
 			menuVerVotosporComunidad, menuPersonalizacion, menuVerVotosporEdad;
@@ -85,9 +88,6 @@ public class Vista extends JFrame {
 		menuFondo.setFont(new Font("Andale Mono", 1, 14));
 		menuPersonalizacion.add(menuFondo);
 
-		menuCuadros = new JMenu("Recuadros");
-		menuCuadros.setFont(new Font("Andale Mono", 1, 14));
-		menuPersonalizacion.add(menuCuadros);
 
 		menuLetra = new JMenu("Letras");
 		menuLetra.setFont(new Font("Andale Mono", 1, 14));
@@ -100,6 +100,7 @@ public class Vista extends JFrame {
 		menuVerVotosporComunidad = new JMenu("Votos Comunidad");
 		menuVerVotosporComunidad.setFont(new Font("Andale Mono", 1, 14));
 		menuBar.add(menuVerVotosporComunidad);
+		menuVerVotosporComunidad.setVisible(false);
 
 		mostrarComunidades = new JMenuItem("Mostrar");
 		mostrarComunidades.setFont(new Font("Andale Mono", 1, 14));
@@ -108,6 +109,7 @@ public class Vista extends JFrame {
 		menuVerVotosporEdad = new JMenu("Votos Edades");
 		menuVerVotosporEdad.setFont(new Font("Andale Mono", 1, 14));
 		menuBar.add(menuVerVotosporEdad);
+		menuVerVotosporEdad.setVisible(false);
 
 		mostrarEdades = new JMenuItem("Mostrar");
 		mostrarEdades.setFont(new Font("Andale Mono", 1, 14));
@@ -120,10 +122,6 @@ public class Vista extends JFrame {
 		menuColorFondo = new JMenu("Color de fondo");
 		menuColorFondo.setFont(new Font("Andale Mono", 1, 14));
 		menuFondo.add(menuColorFondo);
-
-		menuColorLetras = new JMenu("Color de Letra");
-		menuColorLetras.setFont(new Font("Andale Mono", 1, 14));
-		menuLetra.add(menuColorLetras);
 
 		nuevoLetra = new JMenuItem("Nuevo Color");
 		nuevoLetra.setFont(new Font("Andale Mono", 1, 14));
@@ -153,32 +151,141 @@ public class Vista extends JFrame {
 		nuevoFondo.setFont(new Font("Andale Mono", 1, 14));
 		menuFondo.add(nuevoFondo);
 		
-		//PANEL INICIO
-		panelinicio= new JPanel();
-		panelinicio.setBackground(Color.WHITE);
-		panelinicio.setBounds(0, 0, 1236, 688);
-		contentPane.add(panelinicio);
-		panelinicio.setLayout(null);
-		panelinicio.setVisible(false);
+		// Panel para Crear Color
+				panelPersonalizacion = new JPanel();
+				panelPersonalizacion.setBackground(Color.WHITE);
+				panelPersonalizacion.setBounds(0, 0, 777, 442);
+				contentPane.add(panelPersonalizacion);
+				panelPersonalizacion.setLayout(null);
+				panelPersonalizacion.setVisible(false);
+
+				textoColor1 = new JLabel("Primer Digito");
+				textoColor1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textoColor1.setHorizontalAlignment(SwingConstants.CENTER);
+				textoColor1.setBounds(24, 106, 174, 35);
+				panelPersonalizacion.add(textoColor1);
+
+				textoColor2 = new JLabel("Segundo Digito");
+				textoColor2.setHorizontalAlignment(SwingConstants.CENTER);
+				textoColor2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textoColor2.setBounds(24, 198, 174, 35);
+				panelPersonalizacion.add(textoColor2);
+
+				textoColor3 = new JLabel("Tercer Digito");
+				textoColor3.setHorizontalAlignment(SwingConstants.CENTER);
+				textoColor3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+				textoColor3.setBounds(24, 282, 174, 35);
+				panelPersonalizacion.add(textoColor3);
+
+				colorDigito1 = new JTextField();
+				colorDigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colorDigito1.setBounds(67, 133, 96, 35);
+				panelPersonalizacion.add(colorDigito1);
+				colorDigito1.setColumns(10);
+
+				colorDigito2 = new JTextField();
+				colorDigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colorDigito2.setColumns(10);
+				colorDigito2.setBounds(67, 231, 96, 35);
+				panelPersonalizacion.add(colorDigito2);
+
+				colorDigito3 = new JTextField();
+				colorDigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
+				colorDigito3.setColumns(10);
+				colorDigito3.setBounds(67, 316, 96, 35);
+				panelPersonalizacion.add(colorDigito3);
+
+				textocolordigito1 = new JLabel("Inserte Digito (0...250)");
+				textocolordigito1.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textocolordigito1.setBounds(153, 133, 174, 35);
+				panelPersonalizacion.add(textocolordigito1);
+
+				textocolordigito2 = new JLabel("Inserte Digito (0...250)");
+				textocolordigito2.setHorizontalAlignment(SwingConstants.CENTER);
+				textocolordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textocolordigito2.setBounds(153, 231, 174, 35);
+				panelPersonalizacion.add(textocolordigito2);
+
+				textoColorDigito1 = new JLabel("Inserte Digito (0...250)");
+				textoColorDigito1.setHorizontalAlignment(SwingConstants.CENTER);
+				textoColorDigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
+				textoColorDigito1.setBounds(153, 316, 174, 35);
+				panelPersonalizacion.add(textoColorDigito1);
+
+				colorPrevisto = new JPanel();
+				colorPrevisto.setBackground(Color.BLACK);
+				colorPrevisto.setBounds(458, 88, 228, 229);
+				panelPersonalizacion.add(colorPrevisto);
+
+				textovistapreviap = new JLabel("Vista Previa");
+				textovistapreviap.setHorizontalAlignment(SwingConstants.CENTER);
+				textovistapreviap.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 25));
+				textovistapreviap.setBounds(494, 43, 174, 35);
+				panelPersonalizacion.add(textovistapreviap);
+
+				btcomprobarpersonalizacion = new JButton("Comprobar");
+				btcomprobarpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
+				btcomprobarpersonalizacion.setBounds(127, 377, 131, 35);
+				panelPersonalizacion.add(btcomprobarpersonalizacion);
+
+				btsalirpersonalizacion = new JButton("Salir");
+				btsalirpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
+				btsalirpersonalizacion.setBounds(555, 377, 131, 35);
+				panelPersonalizacion.add(btsalirpersonalizacion);
 		
-		ImageIcon iconop = new ImageIcon(Vista.class.getResource("/vista/img/logo.jpg"));
-		Image iconopt = iconop.getImage(); // transform it
-		Image iconoptt = iconopt.getScaledInstance(1250, 750, java.awt.Image.SCALE_SMOOTH);
-		iconop = new ImageIcon(iconoptt);
+				//PANEL INICIO
+				panelinicio= new JPanel();
+				panelinicio.setBackground(Color.WHITE);
+				panelinicio.setBounds(0, 0, 1236, 688);
+				contentPane.add(panelinicio);
+				panelinicio.setLayout(null);
+				panelinicio.setVisible(false);
+				
+				ImageIcon iconop = new ImageIcon(Vista.class.getResource("/vista/img/logo.jpg"));
+				Image iconopt = iconop.getImage(); // transform it
+				Image iconoptt = iconopt.getScaledInstance(1250, 750, java.awt.Image.SCALE_SMOOTH);
+				iconop = new ImageIcon(iconoptt);
+				
+				botonparticipantes = new JButton("VER PARTICIPANTES");
+				botonparticipantes.setFont(new Font("Tahoma", Font.BOLD, 16));
+				botonparticipantes.setBounds(352, 501, 238, 72);
+				panelinicio.add(botonparticipantes);
+				
+				botonempezar = new JButton("COMENZAR VOTACION");
+				botonempezar.setFont(new Font("Tahoma", Font.BOLD, 16));
+				botonempezar.setBounds(629, 501, 238, 72);
+				panelinicio.add(botonempezar);
+				tituloinicio = new JLabel(iconop);
+				tituloinicio.setBounds(0, -87, 1236, 857);
+				panelinicio.add(tituloinicio);
+				panelinicio.setVisible(true);
+				
+		//PANEL CARGAR
+		panelcargar= new JPanel();
+		panelcargar.setBackground(Color.WHITE);
+		panelcargar.setBounds(0, 0, 1236, 688);
+		contentPane.add(panelcargar);
+		panelcargar.setLayout(null);
+		panelcargar.setVisible(false);
 		
-		botonparticipantes = new JButton("VER PARTICIPANTES");
-		botonparticipantes.setFont(new Font("Tahoma", Font.BOLD, 16));
-		botonparticipantes.setBounds(352, 501, 238, 72);
-		panelinicio.add(botonparticipantes);
+		procesocargar = new JProgressBar();
+		procesocargar.setBounds(344, 505, 539, 58);
+		panelcargar.add(procesocargar);
 		
-		botonempezar = new JButton("COMENZAR VOTACION");
-		botonempezar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		botonempezar.setBounds(629, 501, 238, 72);
-		panelinicio.add(botonempezar);
-		tituloinicio = new JLabel(iconop);
-		tituloinicio.setBounds(0, -87, 1226, 857);
-		panelinicio.add(tituloinicio);
-		panelinicio.setVisible(true);
+		botonverresultados = new JButton("VER RESULTADOS");
+		botonverresultados.setBounds(483, 573, 212, 63);
+		botonverresultados.setFont(new Font("Tahoma", Font.BOLD, 16));
+		panelcargar.add(botonverresultados);
+		botonverresultados.setVisible(true);
+		
+		ImageIcon iconop2 = new ImageIcon(Vista.class.getResource("/vista/img/logo.jpg"));
+		Image iconopt2 = iconop2.getImage(); // transform it
+		Image iconoptt2 = iconopt2.getScaledInstance(1250, 750, java.awt.Image.SCALE_SMOOTH);
+		iconop2 = new ImageIcon(iconoptt2);
+		titulocargar = new JLabel(iconop2);
+		titulocargar.setBounds(0, -88, 1236, 857);
+		panelcargar.add(titulocargar);
 		// Panel EDADES
 		panelEdades = new JPanel();
 		panelEdades.setBackground(Color.WHITE);
@@ -302,88 +409,6 @@ public class Vista extends JFrame {
 		mapaEdades.setBounds(283, 0, 943, 678);
 		panelEdades.add(mapaEdades);
 
-		// Panel para Crear Color
-		panelPersonalizacion = new JPanel();
-		panelPersonalizacion.setBackground(Color.WHITE);
-		panelPersonalizacion.setBounds(0, 0, 777, 442);
-		contentPane.add(panelPersonalizacion);
-		panelPersonalizacion.setLayout(null);
-		panelPersonalizacion.setVisible(false);
-
-		textoColor1 = new JLabel("Primer Digito");
-		textoColor1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		textoColor1.setHorizontalAlignment(SwingConstants.CENTER);
-		textoColor1.setBounds(24, 106, 174, 35);
-		panelPersonalizacion.add(textoColor1);
-
-		textoColor2 = new JLabel("Segundo Digito");
-		textoColor2.setHorizontalAlignment(SwingConstants.CENTER);
-		textoColor2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		textoColor2.setBounds(24, 198, 174, 35);
-		panelPersonalizacion.add(textoColor2);
-
-		textoColor3 = new JLabel("Tercer Digito");
-		textoColor3.setHorizontalAlignment(SwingConstants.CENTER);
-		textoColor3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		textoColor3.setBounds(24, 282, 174, 35);
-		panelPersonalizacion.add(textoColor3);
-
-		colorDigito1 = new JTextField();
-		colorDigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-		colorDigito1.setBounds(67, 133, 96, 35);
-		panelPersonalizacion.add(colorDigito1);
-		colorDigito1.setColumns(10);
-
-		colorDigito2 = new JTextField();
-		colorDigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-		colorDigito2.setColumns(10);
-		colorDigito2.setBounds(67, 231, 96, 35);
-		panelPersonalizacion.add(colorDigito2);
-
-		colorDigito3 = new JTextField();
-		colorDigito3.setFont(new Font("Yu Gothic Medium", Font.BOLD | Font.ITALIC, 13));
-		colorDigito3.setColumns(10);
-		colorDigito3.setBounds(67, 316, 96, 35);
-		panelPersonalizacion.add(colorDigito3);
-
-		textocolordigito1 = new JLabel("Inserte Digito (0...250)");
-		textocolordigito1.setHorizontalAlignment(SwingConstants.CENTER);
-		textocolordigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-		textocolordigito1.setBounds(153, 133, 174, 35);
-		panelPersonalizacion.add(textocolordigito1);
-
-		textocolordigito2 = new JLabel("Inserte Digito (0...250)");
-		textocolordigito2.setHorizontalAlignment(SwingConstants.CENTER);
-		textocolordigito2.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-		textocolordigito2.setBounds(153, 231, 174, 35);
-		panelPersonalizacion.add(textocolordigito2);
-
-		textoColorDigito1 = new JLabel("Inserte Digito (0...250)");
-		textoColorDigito1.setHorizontalAlignment(SwingConstants.CENTER);
-		textoColorDigito1.setFont(new Font("Yu Gothic Medium", Font.BOLD, 13));
-		textoColorDigito1.setBounds(153, 316, 174, 35);
-		panelPersonalizacion.add(textoColorDigito1);
-
-		colorPrevisto = new JPanel();
-		colorPrevisto.setBackground(Color.BLACK);
-		colorPrevisto.setBounds(458, 88, 228, 229);
-		panelPersonalizacion.add(colorPrevisto);
-
-		textovistapreviap = new JLabel("Vista Previa");
-		textovistapreviap.setHorizontalAlignment(SwingConstants.CENTER);
-		textovistapreviap.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 25));
-		textovistapreviap.setBounds(494, 43, 174, 35);
-		panelPersonalizacion.add(textovistapreviap);
-
-		btcomprobarpersonalizacion = new JButton("Comprobar");
-		btcomprobarpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
-		btcomprobarpersonalizacion.setBounds(127, 377, 131, 35);
-		panelPersonalizacion.add(btcomprobarpersonalizacion);
-
-		btsalirpersonalizacion = new JButton("Salir");
-		btsalirpersonalizacion.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 14));
-		btsalirpersonalizacion.setBounds(555, 377, 131, 35);
-		panelPersonalizacion.add(btsalirpersonalizacion);
 
 		// Panel Comunidades
 		panelComunidades = new JPanel();
