@@ -268,7 +268,6 @@ public class Controlador implements ActionListener {
 		this.inicio.btnavarra.addActionListener(this);
 		this.inicio.btpaisvasco.addActionListener(this);
 		this.inicio.botonempezar.addActionListener(this);
-		this.inicio.botonparticipantes.addActionListener(this);
 		this.inicio.botonverresultados.addActionListener(this);
 
 	}
@@ -305,7 +304,6 @@ public class Controlador implements ActionListener {
 		//CAMBIAR COLOR LETRA
 				if (e.getSource() == inicio.nuevoLetra) {
 					inicio.botonempezar.setForeground(nuevoColor);
-					inicio.botonparticipantes.setForeground(nuevoColor);
 					inicio.btcomprobarpersonalizacion.setForeground(nuevoColor);
 					inicio.btsalirpersonalizacion.setForeground(nuevoColor);
 					inicio.crearColor.setForeground(nuevoColor);

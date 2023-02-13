@@ -47,7 +47,7 @@ public class Vista extends JFrame {
 			nuevoCuadro, nuevoLetra, cuadroBlanco, cuadroNegro, cuadroAzul, cuadroRojo, letraRojo,
 			letraNegro, letraAzul, letraBlanco, mostrarComunidades;
 
-	public JButton btnCatalunia,botonparticipantes,botonempezar, btnCastillaLaMancha, btextremadura, btnAndalucia, btaragon, btmurcia, bislasbaleares,
+	public JButton btnCatalunia,botonempezar, btnCastillaLaMancha, btextremadura, btnAndalucia, btaragon, btmurcia, bislasbaleares,
 			btvalencia, btmadrid, btlarioja, bislascanarias, bceuta, bmelilla;
 
 	public static void main(String[] args) {
@@ -247,14 +247,9 @@ public class Vista extends JFrame {
 				Image iconoptt = iconopt.getScaledInstance(1250, 750, java.awt.Image.SCALE_SMOOTH);
 				iconop = new ImageIcon(iconoptt);
 				
-				botonparticipantes = new JButton("VER PARTICIPANTES");
-				botonparticipantes.setFont(new Font("Tahoma", Font.BOLD, 16));
-				botonparticipantes.setBounds(352, 501, 238, 72);
-				panelinicio.add(botonparticipantes);
-				
 				botonempezar = new JButton("COMENZAR VOTACION");
 				botonempezar.setFont(new Font("Tahoma", Font.BOLD, 16));
-				botonempezar.setBounds(629, 501, 238, 72);
+				botonempezar.setBounds(486, 502, 238, 72);
 				panelinicio.add(botonempezar);
 				tituloinicio = new JLabel(iconop);
 				tituloinicio.setBounds(0, -87, 1236, 857);
