@@ -161,23 +161,23 @@ public class Vista extends JFrame {
 		panelinicio.setLayout(null);
 		panelinicio.setVisible(false);
 		
-		ImageIcon iconop = new ImageIcon(Vista.class.getResource("/vista/img/logo_benidormfest.png"));
+		ImageIcon iconop = new ImageIcon(Vista.class.getResource("/vista/img/logo.jpg"));
 		Image iconopt = iconop.getImage(); // transform it
-		Image iconoptt = iconopt.getScaledInstance(800, 500, java.awt.Image.SCALE_SMOOTH);
+		Image iconoptt = iconopt.getScaledInstance(1250, 750, java.awt.Image.SCALE_SMOOTH);
 		iconop = new ImageIcon(iconoptt);
-		tituloinicio = new JLabel(iconop);
-		tituloinicio.setBounds(169, 24, 866, 523);
-		panelinicio.add(tituloinicio);
 		
 		botonparticipantes = new JButton("VER PARTICIPANTES");
 		botonparticipantes.setFont(new Font("Tahoma", Font.BOLD, 16));
-		botonparticipantes.setBounds(316, 558, 238, 72);
+		botonparticipantes.setBounds(352, 501, 238, 72);
 		panelinicio.add(botonparticipantes);
 		
 		botonempezar = new JButton("COMENZAR VOTACION");
 		botonempezar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		botonempezar.setBounds(626, 558, 238, 72);
+		botonempezar.setBounds(629, 501, 238, 72);
 		panelinicio.add(botonempezar);
+		tituloinicio = new JLabel(iconop);
+		tituloinicio.setBounds(0, -87, 1226, 857);
+		panelinicio.add(tituloinicio);
 		panelinicio.setVisible(true);
 		// Panel EDADES
 		panelEdades = new JPanel();
