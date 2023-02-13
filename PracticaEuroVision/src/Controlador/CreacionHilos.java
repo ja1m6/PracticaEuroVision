@@ -20,15 +20,31 @@ import persistencias.ResultadosGenerales;
 
 public class CreacionHilos {
 
-	public static void main(String[] args) {
-		List<Resultado> resultadosCom = new ArrayList<Resultado>();
-		resultadosCom = obtenerVotosEdad("RANGO_26_40");
-		Artista r = null;
+	public static List<Resultado> obtenerresultadosgenerales() {
+		SessionFactory sessionFac = null;
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		sessionFac = cfg.buildSessionFactory();
+		Session session = sessionFac.getCurrentSession();
+		List<Resultado> resultados = new ArrayList<Resultado>();
+		try {
+			session.beginTransaction();
+			Query q=session.createSQLQuery("select a.nombre,rg.votos_totales from resultados_generales as rg inner join artista as a on a.dni=rg.dni_artista order by rg.votos_totales desc");
+			List<Object[]> resultado = q.getResultList();
 
-		for (int i = 0; i < 3; i++) {
-			System.out.println(resultadosCom.get(i).getArtista());
-			System.out.println(resultadosCom.get(i).getVotos());
+			// RECORREMOS EL RESULTADO DE LA CONSULTA
+			for (Object[] fila : resultado) {
+				int votos = (int) fila[1];
+				String artista = (String) fila[0];
+				resultados.add(new Resultado(artista, votos));
+			}
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
 		}
+		return resultados;
 	}
 
 	public void generarVotantes() {
@@ -635,8 +651,9 @@ public class CreacionHilos {
 	 * OBTENER PUNTOS COMUNIDAD: METODO PARA OBTENER LOS VOTOS DE CADA ARTISTA
 	 * FILTRANDO POR LAS DISTINTAS COMUNIDADES
 	 */
-	public static List<Resultado> obtenerVotosComunidad(SessionFactory sessionFac, String nombreComunidad) {
+	public static List<Resultado> obtenerVotosComunidad(String nombreComunidad) {
 		// REALIZAMOS LA CONEXIÓN
+		SessionFactory sessionFac = null;
 		Configuration cfg = new Configuration();
 		cfg.configure("hibernate.cfg.xml");
 		sessionFac = cfg.buildSessionFactory();

@@ -22,17 +22,16 @@ import javax.swing.JMenuItem;
 
 public class Vista extends JFrame {
 
-	public JPanel contentPane, panelPersonalizacion, colorPrevisto, panelComunidades, panelEdades;
+	public JPanel contentPane, panelPersonalizacion, colorPrevisto, panelComunidades, panelEdades,panelinicio;
 
 	public JButton btsalirpersonalizacion, btcastillaleon, btasturias, btcomprobarpersonalizacion, btsalircomunidades,
 			btgalicia, btnavarra, btcantabria, btsaliredades, bt18anios, btpaisvasco, bt26anios, bt41anios, bt66anios;
 
-	public JLabel nombreedad1, resultados3, podioResultados, votosResultado1, votosResultado2, votosResultado3,
-			imagenfondoresultados, resultados2, resultados1, puntoscomun1, puntoscomun2, puntoscomun3, puntosedad1,
+	public JLabel nombreedad1,tituloinicio,resultados3, podioResultados, votosResultado1, votosResultado2, votosResultado3, resultados2, resultados1, puntoscomun1, puntoscomun2, puntoscomun3, puntosedad1,
 			ftedad1, puntosEdad2, puntosEdad3, puntosedad3ftedad1, ftedad2, ftedad3, nombreedad2, nombreedad3,
 			label_imgBenidormF, mapaEdades, textovistapreviap, textoColorDigito1, textocolordigito2, textocolordigito1,
 			textoColor1, textoColor2, textoColor3, mapaComunidades, ftcomunidad1, ftcomunidad2, ftcomunidad3,
-			nombreComun1, nombreComun2, nombreComun3;
+			nombreComun1, nombreComun2, nombreComun3,nombreResultado2,nombreResultado1,nombreResultado3;
 
 	public JTextField colorDigito1, colorDigito2, colorDigito3;
 
@@ -42,10 +41,10 @@ public class Vista extends JFrame {
 			menuVerVotosporComunidad, menuPersonalizacion, menuVerVotosporEdad;
 
 	public JMenuItem fondoRojo, mostrarEdades, fondoNegro, fondoAzul, fondoBlanco, crearColor, fondoVerde, nuevoFondo,
-			nuevoCuadro, nuevoLetra, cuadroVerde, cuadroBlanco, cuadroNegro, cuadroAzul, cuadroRojo, letraRojo,
-			letraNegro, letraAzul, letraBlanco, letraGris, letraVerde, mostrarComunidades;
+			nuevoCuadro, nuevoLetra, cuadroBlanco, cuadroNegro, cuadroAzul, cuadroRojo, letraRojo,
+			letraNegro, letraAzul, letraBlanco, mostrarComunidades;
 
-	public JButton btnCatalunia, btnCastillaLaMancha, btextremadura, btnAndalucia, btaragon, btmurcia, bislasbaleares,
+	public JButton btnCatalunia,botonparticipantes,botonempezar, btnCastillaLaMancha, btextremadura, btnAndalucia, btaragon, btmurcia, bislasbaleares,
 			btvalencia, btmadrid, btlarioja, bislascanarias, bceuta, bmelilla;
 
 	public static void main(String[] args) {
@@ -126,54 +125,6 @@ public class Vista extends JFrame {
 		menuColorLetras.setFont(new Font("Andale Mono", 1, 14));
 		menuLetra.add(menuColorLetras);
 
-		menuColorCuadros = new JMenu("Color de Recuadros");
-		menuColorCuadros.setFont(new Font("Andale Mono", 1, 14));
-		menuCuadros.add(menuColorCuadros);
-
-		nuevoCuadro = new JMenuItem("Nuevo Color");
-		nuevoCuadro.setFont(new Font("Andale Mono", 1, 14));
-		menuCuadros.add(nuevoCuadro);
-
-		cuadroRojo = new JMenuItem("Rojo");
-		cuadroRojo.setFont(new Font("Andale Mono", 1, 14));
-		menuColorCuadros.add(cuadroRojo);
-
-		cuadroNegro = new JMenuItem("Negro");
-		cuadroNegro.setFont(new Font("Andale Mono", 1, 14));
-		menuColorCuadros.add(cuadroNegro);
-
-		cuadroVerde = new JMenuItem("Verde");
-		cuadroVerde.setFont(new Font("Andale Mono", 1, 14));
-		menuColorCuadros.add(cuadroVerde);
-
-		cuadroAzul = new JMenuItem("Azul");
-		cuadroAzul.setFont(new Font("Andale Mono", 1, 14));
-		menuColorCuadros.add(cuadroAzul);
-
-		cuadroBlanco = new JMenuItem("Blanco");
-		cuadroBlanco.setFont(new Font("Andale Mono", 1, 14));
-		menuColorCuadros.add(cuadroBlanco);
-
-		letraRojo = new JMenuItem("Rojo");
-		letraRojo.setFont(new Font("Andale Mono", 1, 14));
-		menuColorLetras.add(letraRojo);
-
-		letraNegro = new JMenuItem("Negro");
-		letraNegro.setFont(new Font("Andale Mono", 1, 14));
-		menuColorLetras.add(letraNegro);
-
-		letraVerde = new JMenuItem("Verde");
-		letraVerde.setFont(new Font("Andale Mono", 1, 14));
-		menuColorLetras.add(letraVerde);
-
-		letraAzul = new JMenuItem("Azul");
-		letraAzul.setFont(new Font("Andale Mono", 1, 14));
-		menuColorLetras.add(letraAzul);
-
-		letraBlanco = new JMenuItem("Blanco");
-		letraBlanco.setFont(new Font("Andale Mono", 1, 14));
-		menuColorLetras.add(letraBlanco);
-
 		nuevoLetra = new JMenuItem("Nuevo Color");
 		nuevoLetra.setFont(new Font("Andale Mono", 1, 14));
 		menuLetra.add(nuevoLetra);
@@ -201,7 +152,33 @@ public class Vista extends JFrame {
 		nuevoFondo = new JMenuItem("Nuevo Color");
 		nuevoFondo.setFont(new Font("Andale Mono", 1, 14));
 		menuFondo.add(nuevoFondo);
-
+		
+		//PANEL INICIO
+		panelinicio= new JPanel();
+		panelinicio.setBackground(Color.WHITE);
+		panelinicio.setBounds(0, 0, 1236, 688);
+		contentPane.add(panelinicio);
+		panelinicio.setLayout(null);
+		panelinicio.setVisible(false);
+		
+		ImageIcon iconop = new ImageIcon(Vista.class.getResource("/vista/img/logo2.png"));
+		Image iconopt = iconop.getImage(); // transform it
+		Image iconoptt = iconopt.getScaledInstance(1100, 700, java.awt.Image.SCALE_SMOOTH);
+		iconop = new ImageIcon(iconoptt);
+		tituloinicio = new JLabel(iconop);
+		tituloinicio.setBounds(115, 38, 1010, 322);
+		panelinicio.add(tituloinicio);
+		
+		botonparticipantes = new JButton("VER PARTICIPANTES");
+		botonparticipantes.setFont(new Font("Tahoma", Font.BOLD, 16));
+		botonparticipantes.setBounds(259, 420, 238, 72);
+		panelinicio.add(botonparticipantes);
+		
+		botonempezar = new JButton("COMENZAR VOTACION");
+		botonempezar.setFont(new Font("Tahoma", Font.BOLD, 16));
+		botonempezar.setBounds(761, 420, 238, 72);
+		panelinicio.add(botonempezar);
+		panelinicio.setVisible(true);
 		// Panel EDADES
 		panelEdades = new JPanel();
 		panelEdades.setBackground(Color.WHITE);
@@ -682,7 +659,6 @@ public class Vista extends JFrame {
 		panelComunidades.add(puntoscomun3);
 
 		// Agregar Imagen a Logo
-
 		ImageIcon fotobf = new ImageIcon(Vista.class.getResource("/vista/img/logo_benidormfest.png"));
 		Image fotot = fotobf.getImage(); // transform it
 		Image fotott = fotot.getScaledInstance(400, 200, java.awt.Image.SCALE_SMOOTH);
@@ -718,19 +694,19 @@ public class Vista extends JFrame {
 		votosResultado2 = new JLabel("VOTOS: ???");
 		votosResultado2.setHorizontalAlignment(SwingConstants.CENTER);
 		votosResultado2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		votosResultado2.setBounds(455, 590, 218, 35);
+		votosResultado2.setBounds(455, 643, 218, 35);
 		contentPane.add(votosResultado2);
 
 		votosResultado1 = new JLabel("VOTOS: ???");
 		votosResultado1.setHorizontalAlignment(SwingConstants.CENTER);
 		votosResultado1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		votosResultado1.setBounds(719, 590, 218, 35);
+		votosResultado1.setBounds(725, 643, 218, 35);
 		contentPane.add(votosResultado1);
 
 		votosResultado3 = new JLabel("VOTOS: ???");
 		votosResultado3.setHorizontalAlignment(SwingConstants.CENTER);
 		votosResultado3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
-		votosResultado3.setBounds(976, 590, 218, 35);
+		votosResultado3.setBounds(976, 643, 218, 35);
 		contentPane.add(votosResultado3);
 
 		ImageIcon podio = new ImageIcon(Vista.class.getResource("/vista/img/podio.png"));
@@ -740,10 +716,24 @@ public class Vista extends JFrame {
 		podioResultados = new JLabel(podio);
 		podioResultados.setBounds(333, 201, 984, 414);
 		contentPane.add(podioResultados);
-
-		imagenfondoresultados = new JLabel("New label");
-		imagenfondoresultados.setBounds(0, 0, 1234, 686);
-		contentPane.add(imagenfondoresultados);
+		
+		nombreResultado2 = new JLabel("???");
+		nombreResultado2.setHorizontalAlignment(SwingConstants.CENTER);
+		nombreResultado2.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		nombreResultado2.setBounds(455, 590, 218, 35);
+		contentPane.add(nombreResultado2);
+		
+		nombreResultado1 = new JLabel("???");
+		nombreResultado1.setHorizontalAlignment(SwingConstants.CENTER);
+		nombreResultado1.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		nombreResultado1.setBounds(725, 590, 218, 35);
+		contentPane.add(nombreResultado1);
+		
+		nombreResultado3 = new JLabel("???");
+		nombreResultado3.setHorizontalAlignment(SwingConstants.CENTER);
+		nombreResultado3.setFont(new Font("Yu Gothic Medium", Font.ITALIC, 21));
+		nombreResultado3.setBounds(976, 590, 218, 35);
+		contentPane.add(nombreResultado3);
 
 	}
 }
